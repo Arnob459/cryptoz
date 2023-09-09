@@ -5,7 +5,7 @@
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="logo">
-                    <a href="{{ route('dashboard') }}"><img src="{{ asset('assets/admin/images/logo/logo.svg') }}" alt="Logo" srcset=""></a>
+                    <a href="{{ route('admin.dashboard') }}"><img src="{{ asset('assets/admin/images/logo/logo.svg') }}" alt="Logo" srcset=""></a>
                 </div>
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                     <div class="form-check form-switch fs-6">
@@ -24,7 +24,7 @@
 
                 <li
                     class="sidebar-item {{ Route::is('dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}" class="sidebar-link">
+                    <a href="{{ route('admin.dashboard') }}" class="sidebar-link">
                         <i class="fas fa-home"></i>
                         <span>Dashboard</span>
                     </a>

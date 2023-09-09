@@ -12,6 +12,10 @@
 
 <div class="page-heading">
     <h3>Welcome back, Admin!</h3>
+    <a class="dropdown-item" href="{{ route('admin.logout') }}">
+        <i class="bx bx-power-off me-2"></i>
+        <span class="align-middle">Log Out</span>
+      </a>
 
 </div>
 <div class="page-content">

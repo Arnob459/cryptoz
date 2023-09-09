@@ -8,6 +8,14 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
+
+
+// use App\Http\Controllers\Auth\Registered;
+
 
 class RegisterController extends Controller
 {
@@ -51,8 +59,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+
+
         ]);
     }
 
@@ -64,10 +73,69 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        $newpass = Str::random(6);
+        // dd($newpass);
+
+
+
+        $refid = User::where('username',$data['refferal'])->pluck('id')->first();
+
+        // dd($refid);
+
+
+
+        $createusername = random_int(10000000, 99999999);
+
+
+        if(User::where('username',$createusername)->exists()) {
+
+            return $createusername;
+        }
+        else{
+            $username = $createusername;
+        }
+
+
         return User::create([
+            'refferal' => $refid,
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'phone' => $data['phone'],
+            'username' => $username,
+            'password' => Hash::make($newpass),
+            'password_text' =>$newpass
         ]);
+    }
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $checkRef = User::where('username', $request->refferal)->first();
+        if($checkRef == NULL){
+        return back()->with('message', 'Invalid refferal id');
+        }
+
+        $checkemail = User::where('email', $request->email)->first();
+        if($checkemail){
+        return back()->with('message', 'Email already exists');
+        }
+
+        $checkphone = User::where('phone', $request->phone)->first();
+        if($checkphone){
+        return back()->with('message', 'phone Number Already exists');
+        }
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        if ($response = $this->registered($request, $user)) {
+            return $response;
+        }
+
+        return $request->wantsJson()
+                    ? new JsonResponse([], 201)
+                    : redirect($this->redirectPath());
     }
 }

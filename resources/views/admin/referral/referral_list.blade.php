@@ -18,7 +18,7 @@
                         </div>
                         <div class="col-12 col-md-1 order-md-2 order-first">
                             <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
-                                    <a href="{{ route('dashboard') }}"><i class="fas fa-home"></i></a>
+                                    <a href="{{ route('admin.dashboard') }}"><i class="fas fa-home"></i></a>
                             </nav>
                         </div>
                     </div>
