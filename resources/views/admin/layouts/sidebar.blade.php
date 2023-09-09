@@ -4,14 +4,18 @@
     <div class="sidebar-wrapper active">
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
+
                 <div class="logo">
                     <a href="{{ route('admin.dashboard') }}"><img src="{{ asset('assets/admin/images/logo/logo.svg') }}" alt="Logo" srcset=""></a>
                 </div>
+
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                     <div class="form-check form-switch fs-6">
                         <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" checked hidden >
                         <label class="form-check-label" ></label>
                     </div>
+
+
                 </div>
                 <div class="sidebar-toggler  x">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
@@ -32,7 +36,7 @@
 
                 <li
                     class="sidebar-item {{ Route::is('referral') ? 'active' : '' }} ">
-                    <a href="{{ route('referral') }}" class="sidebar-link">
+                    <a href="{{ route('admin.referral') }}" class="sidebar-link">
                         <i class="far fa-handshake"></i>
                         <span>Referral Levels</span>
                     </a>
@@ -40,7 +44,7 @@
 
                 <li
                     class="sidebar-item {{ Route::is('plan') ? 'active' : '' }} ">
-                    <a href="{{ route('plan') }}" class="sidebar-link">
+                    <a href="{{ route('admin.plan') }}" class="sidebar-link">
                         <i class="far fa-lightbulb"></i>
                         <span>Manage Plan</span>
                     </a>
@@ -48,7 +52,7 @@
 
                 <li
                     class="sidebar-item {{ Route::is('rewards') ? 'active' : '' }} ">
-                    <a href="{{ route('rewards') }}" class="sidebar-link">
+                    <a href="{{ route('admin.rewards') }}" class="sidebar-link">
                         <i class="fas fa-gifts"></i>
                         <span>Manage Rewards</span>
                     </a>
@@ -64,7 +68,7 @@
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item {{ Route::is('allusers') ? 'active' : '' }} ">
-                            <a href="{{ route('allusers') }}">All Users</a>
+                            <a href="{{ route('admin.allusers') }}">All Users</a>
                         </li>
                         <li class="submenu-item ">
                             <a href="">Active Users</a>
