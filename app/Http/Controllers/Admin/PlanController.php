@@ -9,6 +9,7 @@ class PlanController extends Controller
 {
     //
     public function Index(){
-        return view('admin.plan.plan_list');
+        $data['page_title'] = 'Manage Plan';
+        return view('admin.plan.plan_list',$data);
     }
 }

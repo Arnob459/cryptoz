@@ -9,6 +9,8 @@ class UserManageController extends Controller
 {
     //
     public function Index(){
-        return view('admin.manage_user.all_users');
+        $data['page_title'] = 'All Users';
+
+        return view('admin.manage_user.all_users',$data);
     }
 }

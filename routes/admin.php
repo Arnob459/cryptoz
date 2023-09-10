@@ -4,22 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Route;
 
-// use App\Http\Controllers\Auth\CheckUsernameController;
-// use App\Http\Controllers\HomeController;
-
-// use App\Http\Controllers\Admin\DashboardController;
-// use App\Http\Controllers\Admin\ReferralController;
-// use App\Http\Controllers\Admin\PlanController;
-// use App\Http\Controllers\Admin\RewardsController;
-// use App\Http\Controllers\Admin\UserManageController;
-
-// use App\Http\Controllers\Auth\LoginController as UserLoginController;
-// use App\Http\Controllers\Admin\Auth\LoginController as AdminLoginController;
-
-
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,8 +24,17 @@ Route::name('admin.')->group(function() {
         Route::post('/login', [Auth\LoginController ::class, 'login'])->name('login');
     });
     Route::middleware(['is_admin'])->group(function () {
-        //Your routes here
+        //Dashboard
         Route::get('/dashboard', [DashboardController::class, 'Index'])->name('dashboard');
+        //Profile
+        Route::get('/profile/{id}', [DashboardController::class, 'AdminDetails'])->name('profile');
+        Route::post('/update/{id}',[DashboardController::class,'AdminDetailsUpdate'])->name('profile.update');
+
+        //password
+        Route::get('/change/password/{id}',[DashboardController::class,'ChangePassword'])->name('password');
+        Route::post('/change/password/{id}',[DashboardController::class,'UpdatePassword'])->name('password.update');
+
+
         Route::get('/referrals', [ReferralController::class, 'Index'])->name('referral');
         Route::get('/plan', [PlanController::class, 'Index'])->name('plan');
         Route::get('/rewards', [RewardsController::class, 'Index'])->name('rewards');

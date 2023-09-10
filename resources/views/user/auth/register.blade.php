@@ -1,98 +1,142 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('frontend.master')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Mazer Admin Dashboard</title>
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/main/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/admin/css/pages/auth.css') }}">
-    <link rel="shortcut icon" href="{{ asset('assets/admin/images/logo/favicon.svg') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('assets/admin/images/logo/favicon.png') }}" type="image/png">
-</head>
+@section('content')
+<section class="pt-5 pb-5 mt-0 align-items-center d-flex bg-dark">
+    <div class="container">
+      <div class="row  justify-content-center align-items-center d-flex-row text-center mt-5">
 
-<body>
-    <div id="auth">
+      <div class="col-12 col-md-6 col-lg-6  mt-5">
+        <img src="{{ asset('assets/frontend/img/signup.png') }}" class="p-5 img-fluid">
+      </div>
+        <div class="col-12  col-md-6 col-lg-6 mt-5">
+          <div class="card shadow">
+            <div class="card-body">
+              <h4 class="card-title mt-3 text-center">Create Account</h4>
+              <p class="text-center">Get started in the world of many possibilities.</p>
+              @if (session()->has('message'))
+              <div class="alert alert-danger">
+                {{(session()->get('message'))}}
+              </div>
 
-<div class="row h-100">
-    <div class="col-lg-5 col-12">
-        <div id="auth-left">
-            <div class="auth-logo">
-                <a href=""><img src="{{ asset('assets/admin/images/logo/logo.svg') }}" alt="Logo"></a>
-            </div>
-            <h1 class="auth-title">Sign Up</h1>
-            <p class="auth-subtitle mb-5">Input your data to register to our website.</p>
+              @endif
 
-            <form method="POST" action="{{ route('register') }}">
+              @if ($errors->any())
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+                @endif
+
+              <form method="POST" action="{{ route('register') }}">
                 @csrf
-                <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text"  name="refferal" id="refferal" class="form-control form-control-xl" placeholder="Referral ID" value="{{ old('refferal') }}" required>
-                    <div class="form-control-icon">
-                        <i class="bi bi-key"></i>
-                    </div>
+                <div class="form-group input-group">
+
+
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-id-card-alt"></i> </span>
+                  </div>
+                  <input name="refferal" id="refferal"  class="form-control" placeholder="Referral ID" type="text" value="{{ old('refferal') }}" required>
                 </div>
                 <div>
                     <ul id="search-results"></ul>
                 </div>
 
-                <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="text" id="name" name="name" class="form-control form-control-xl" placeholder="Username" value="{{ old('name') }}" required>
-                    <div class="form-control-icon">
-                        <i class="bi bi-person"></i>
-                    </div>
-                </div>
+                 <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                  </div>
+                  <input id="name" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Full Name" type="text" value="{{ old('name') }}" required>
 
-                <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="email" id="email" name="email" class="form-control form-control-xl" placeholder="Email" value="{{ old('email') }}" required>
-                    <div class="form-control-icon">
-                        <i class="bi bi-envelope"></i>
-                    </div>
+                  @error('name')
+                  <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                  </span>
+                @enderror
+                </div>
+                <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                  </div>
+                  <input id="email" name="email" class="form-control " placeholder="Email address" type="email" value="{{ old('email') }}" required>
+
+
+
                 </div>
                 <div>
                     <ul id="search-email"></ul>
+
                 </div>
+                <div class="form-group input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fas fa-phone-alt"></i> </span>
+                  </div>
+                  <input name="phone" id="phone" class="form-control " placeholder="Phone Number" type="number" value="{{ old('phone') }}" required>
 
-
-
-                <div class="form-group position-relative has-icon-left mb-4">
-                    <input type="number" name="phone" id="phone" class="form-control form-control-xl" placeholder="Phone Number" value="{{ old('phone') }}" required>
-                    <div class="form-control-icon">
-                        <i class="bi bi-phone"></i>
-                    </div>
                 </div>
                 <div>
                     <ul id="search-phone"></ul>
+
                 </div>
 
-                <button type="submit" class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
-            </form>
-            <div class="text-center mt-5 text-lg fs-4">
-                <p class='text-gray-600'>Already have an account? <a href="auth-login.html" class="font-bold">Log
-                        in</a>.</p>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary btn-block"> Create Account </button>
+                </div>
+                <p class="text-center mt-2">Have an account?
+                  <a href="login.html"><strong>Sign In<strong></a>
+                </p>
+              </form>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-    <div class="col-lg-7 d-none d-lg-block">
-        <div id="auth-right">
+ </section>
 
-        </div>
-    </div>
-</div>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    </div>
-</body>
 
-</html>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <script>
+     $(document).ready(function () {
+         $('#refferal').on('keyup', function () {
+             var query = $(this).val().trim();
+            //  console.log(query);
+             if (query !== '') {
+                 $.ajax({
+                     url: "{{ route('checkusername') }}",
+                     type: 'GET',
+                     data: { query: query },
+                     success: function (data) {
 
-<script>
+
+                      // $("#refferal").val(data.id);
+
+
+                 if (data.username == query ){
+                      $("#search-results").html(data.name);
+                 }
+                 else{
+                     $("#search-results").html(data.status);
+                 }
+                //  console.log(data.id);
+
+                 }
+
+                 });
+             }
+         });
+     });
+ </script>
+  <script>
     $(document).ready(function () {
-        $('#refferal').on('keyup', function () {
+        $('#email').on('keyup', function () {
             var query = $(this).val().trim();
            //  console.log(query);
             if (query !== '') {
                 $.ajax({
-                    url: "{{ route('checkusername') }}",
+                    url: "{{ route('checkemail') }}",
                     type: 'GET',
                     data: { query: query },
                     success: function (data) {
@@ -101,11 +145,16 @@
                      // $("#refferal").val(data.id);
 
 
-                if (data.username == query ){
-                     $("#search-results").html(data.name);
+                if (data.status ){
+                console.log(data.status);
+
+                     $("#search-email").html('Email already exists');
+
                 }
+
+
                 else{
-                    $("#search-results").html(data.status);
+                    $("#search-email").html('');
                 }
                //  console.log(data.id);
 
@@ -116,66 +165,31 @@
         });
     });
 </script>
- <script>
-   $(document).ready(function () {
-       $('#email').on('keyup', function () {
-           var query = $(this).val().trim();
-          //  console.log(query);
-           if (query !== '') {
-               $.ajax({
-                   url: "{{ route('checkemail') }}",
-                   type: 'GET',
-                   data: { query: query },
-                   success: function (data) {
-
-
-                    // $("#refferal").val(data.id);
-
-
-               if (data.status ){
-               console.log(data.status);
-
-                    $("#search-email").html('Email already exists');
-
-               }
-
-
-               else{
-                   $("#search-email").html('');
-               }
-              //  console.log(data.id);
-
-               }
-
-               });
-           }
-       });
-   });
-</script>
 <script>
-   $(document).ready(function () {
-       $('#phone').on('keyup', function () {
-           var query = $(this).val().trim();
-          //  console.log(query);
-           if (query !== '') {
-               $.ajax({
-                   url: "{{ route('checkphone') }}",
-                   type: 'GET',
-                   data: { query: query },
-                   success: function (data) {
+    $(document).ready(function () {
+        $('#phone').on('keyup', function () {
+            var query = $(this).val().trim();
+           //  console.log(query);
+            if (query !== '') {
+                $.ajax({
+                    url: "{{ route('checkphone') }}",
+                    type: 'GET',
+                    data: { query: query },
+                    success: function (data) {
 
-                    if (data.status ){
-                    $("#search-phone").html('Phone already exists');
-                   }
+                     if (data.status ){
+                     $("#search-phone").html('Phone already exists');
+                    }
 
-               else{
-                   $("#search-phone").html('');
-               }
+                else{
+                    $("#search-phone").html('');
+                }
 
-               }
+                }
 
-               });
-           }
-       });
-   });
+                });
+            }
+        });
+    });
 </script>
+@endsection

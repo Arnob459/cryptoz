@@ -9,7 +9,9 @@ class RewardsController extends Controller
 {
     //
     public function Index(){
-        return view('admin.rewards.rewards_list');
+        $data['page_title'] = 'Manage Rewards';
+
+        return view('admin.rewards.rewards_list',$data);
     }
 
 }

@@ -9,6 +9,7 @@ class ReferralController extends Controller
 {
     //
     public function Index(){
-        return view('admin.referral.referral_list');
+        $data['page_title'] = 'Manage Referral';
+        return view('admin.referral.referral_list',$data);
     }
 }

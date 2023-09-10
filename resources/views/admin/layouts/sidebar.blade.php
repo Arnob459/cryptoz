@@ -1,7 +1,12 @@
 <body>
     <div id="app">
+
+
 <div id="sidebar" class="active">
+
+
     <div class="sidebar-wrapper active">
+
         <div class="sidebar-header position-relative">
             <div class="d-flex justify-content-between align-items-center">
 
@@ -91,7 +96,7 @@
                 <li
                     class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>
-                        <i class="bi bi-journal-check"></i>
+                        <i class="fas fa-book"></i>
                         <span>Subscribers</span>
                     </a>
                     <ul class="submenu ">
@@ -195,4 +200,5 @@
             </ul>
         </div>
     </div>
+
 </div>
