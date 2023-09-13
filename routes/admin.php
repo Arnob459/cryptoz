@@ -37,9 +37,26 @@ Route::name('admin.')->group(function() {
 
         Route::get('/referrals', [ReferralController::class, 'Index'])->name('referral');
         Route::post('/referral/levels', [ReferralController::class, 'getReferralLevels']);
-        Route::get('/plan', [PlanController::class, 'Index'])->name('plan');
+
+
         Route::get('/rewards', [RewardsController::class, 'Index'])->name('rewards');
         Route::get('/allusers', [UserManageController::class, 'Index'])->name('allusers');
+
+        //plan
+        Route::get('/plan', [PlanController::class, 'Index'])->name('plan');
+        Route::get('/plan/create', [PlanController::class, 'planCreate'])->name('plan.create');
+        Route::post('/plan/create', [PlanController::class, 'planStore'])->name('plan.store');
+
+        //Basic Settings
+        Route::get('settings/basic', [BasicSettingsController::class, 'basicSettings'])->name('settings');
+        Route::post('settings/basic', [BasicSettingsController::class, 'basicUpdate'])->name('basic.update');
+        Route::get('settings/logo-favicon', [BasicSettingsController::class, 'logo'])->name('logo');
+        Route::post('settings/logo-favicon', [BasicSettingsController::class, 'logoUpdate'])->name('logo.update');
+
+
+
+
+        //logout
         Route::get('/logout', [Auth\LoginController ::class, 'logout'])->name('logout');
     });
 

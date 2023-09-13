@@ -3,7 +3,7 @@
 @section('content')
 
 @push('button')
-<a href="#" class="btn btn-warning ">Add New Plan</a>
+<a href="{{ route('admin.plan.create') }}" class="btn btn-warning ">Add New Plan</a>
 @endpush
 
                 <section class="section">

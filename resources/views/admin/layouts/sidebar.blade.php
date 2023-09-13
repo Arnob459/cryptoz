@@ -195,7 +195,20 @@
                 </li>
 
                 <li class="sidebar-title">BASIC SETTINGS</li>
-
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="fas fa-book"></i>
+                        <span>Basic Settings</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.settings') }}">Basic</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.logo') }}">Logo & favicon</a>
+                        </li>
+                    </ul>
+                </li>
 
             </ul>
         </div>

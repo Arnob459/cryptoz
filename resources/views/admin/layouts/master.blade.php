@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptoz - {{ $page_title }} </title>
+    <title>{{ $gnl->site_name }} - {{ $page_title }} </title>
 
     <link rel="stylesheet" href="{{ asset('assets/admin/css/main/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/main/app-dark.css') }}">
@@ -13,9 +13,6 @@
 
     <link rel="stylesheet" href="{{ asset('assets/admin/css/shared/iconly.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/fontawesome-5.15.4/css/all.min.css') }}">
-
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> --}}
-
 
 </head>
 @include('admin.layouts.sidebar')
@@ -55,6 +52,10 @@
     <div id="main">
         @if (session('error'))
         <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> {{session('error')}}</div>
+        @endif
+
+        @if (session('errors'))
+        <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> {{session('errors')}}</div>
         @endif
 
         @if (session('success'))
