@@ -3,14 +3,14 @@
 @section('content')
 
 
-    <section id="basic-vertical-layouts">
+    <section id="basic-vertical-layouts ">
 
 
             <div class="col-8 ">
                 <div class="card">
-                    <div class="card-content">
-                        <div class="card-body text-center">
-                            <form class="form form-vertical" action="{{route('admin.password.update', $user->id) }}" method="POST" enctype="multipart/form-data" >
+                    <div class="card-content ">
+                        <div class="card-body  ">
+                            <form class="form form-vertical" action="{{route('admin.password.update') }}" method="POST" enctype="multipart/form-data" >
                                     @csrf
                                 <div class="form-body ">
                                     <div class="row">

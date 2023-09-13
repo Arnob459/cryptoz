@@ -29,7 +29,7 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-body">
-                            <form class="form form-vertical" action="{{route('admin.profile.update', $user->id) }}" method="POST" enctype="multipart/form-data" >
+                            <form class="form form-vertical" action="{{route('admin.profile.update') }}" method="POST" enctype="multipart/form-data" >
                                     @csrf
                                 <div class="form-body">
                                     <div class="row">

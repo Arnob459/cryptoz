@@ -21,16 +21,18 @@ class DashboardController extends Controller
         return view('admin.dashboard',$data);
     }
 
-    public function AdminDetails($id) {
+    public function Profile() {
 
         $data['page_title'] = 'Profile';
-        $data['user'] = Admin::find($id);
-
+        $data['user'] =   auth('admin')->user();
         return view('admin.profile.profile_edit', $data);
     }
 
 
-    public function AdminDetailsUpdate(Request $request ,$id) {
+    public function profileUpdate(Request $request) {
+
+        $admin = auth('admin')->user();
+        $id=$admin->id;
 
         $this->validate($request, [
             'name' => 'required|string|max:50',
@@ -40,7 +42,7 @@ class DashboardController extends Controller
             'avatar' => 'image|mimes:jpeg,png,jpg|max:1048',
         ]);
 
-        $user = Admin::find($id);
+        $user = auth('admin')->user();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->phone = $request->phone;
@@ -55,20 +57,20 @@ class DashboardController extends Controller
 
         $user->save();
 
-        return redirect()->route('admin.profile',$id)->with('success','Admin Information Updated Successfully');
+        return redirect()->route('admin.profile')->with('success','Admin Information Updated Successfully');
     }
 
-    public function ChangePassword($id) {
+    public function ChangePassword() {
 
         $data['page_title'] = 'Change Password';
-        $data['user'] = Admin::find($id);
+        $data['user'] = auth('admin')->user();
         return view('admin.profile.change_password', $data);
     }
 
 
-    public function UpdatePassword(Request $request ,$id) {
+    public function UpdatePassword(Request $request) {
 
-        $users = Admin::find($id);
+        $users = auth('admin')->user();
         $old_pass = $users->password;
 
         if (password_verify($request->input('oldpassword'), $old_pass)) {
@@ -84,14 +86,14 @@ class DashboardController extends Controller
             }
 
             else{
-             return redirect()->route('admin.password',$id)->with('error','New password and Confirm Password doesnot match');
+             return redirect()->route('admin.password')->with('error','New password and Confirm Password doesnot match');
             }
-        $users->save();
-        return redirect()->route('admin.password',$id)->with('success','Admin Information Updated Successfully');
+            $users->save();
+            return redirect()->route('admin.password')->with('success','Password changed Successfully');
         }
-        else{
-            return redirect()->route('admin.password',$id)->with('error','Old password doesnot match');
-        }
+            else{
+                return redirect()->route('admin.password')->with('error','Old password doesnot match');
+            }
 
     }
 }

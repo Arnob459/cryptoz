@@ -27,12 +27,12 @@ Route::name('admin.')->group(function() {
         //Dashboard
         Route::get('/dashboard', [DashboardController::class, 'Index'])->name('dashboard');
         //Profile
-        Route::get('/profile/{id}', [DashboardController::class, 'AdminDetails'])->name('profile');
-        Route::post('/update/{id}',[DashboardController::class,'AdminDetailsUpdate'])->name('profile.update');
+        Route::get('/profile', [DashboardController::class, 'Profile'])->name('profile');
+        Route::post('/update',[DashboardController::class,'profileUpdate'])->name('profile.update');
 
         //password
-        Route::get('/change/password/{id}',[DashboardController::class,'ChangePassword'])->name('password');
-        Route::post('/change/password/{id}',[DashboardController::class,'UpdatePassword'])->name('password.update');
+        Route::get('/change/password',[DashboardController::class,'ChangePassword'])->name('password');
+        Route::post('/change/password',[DashboardController::class,'UpdatePassword'])->name('password.update');
 
 
         Route::get('/referrals', [ReferralController::class, 'Index'])->name('referral');

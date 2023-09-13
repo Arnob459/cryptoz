@@ -39,10 +39,10 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{  route('admin.profile', auth()->guard('admin')->user()->id) }}">My Profile</a>
+                    <a class="nav-link" href="{{  route('admin.profile') }}">My Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{  route('admin.password', auth()->guard('admin')->user()->id) }}">settings</a>
+                    <a class="nav-link" href="{{  route('admin.password') }}">settings</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('admin.logout') }}">Logout</a>
