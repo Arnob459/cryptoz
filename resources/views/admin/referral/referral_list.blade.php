@@ -63,17 +63,31 @@
                                     <h4 class="card-title">Manage Commission</h4>
                                 </div>
                                 <div class="card-body">
-                                    <p>Give Commission When Someone Invest.</p>
-                                    <input type="radio" class="btn-check" name="options-outlined" id="success-outlined"
-                                        autocomplete="off" checked>
-                                    <label class="btn btn-outline-success" for="success-outlined">Yes</label>
+                                    <div class="form-group">
+                                        <label class="form-label">Give Commission When Someone Deposit</label>
+                                        <div class="selectgroup w-100">
+                                            <input type="radio" class="btn-check" name="options-outlined" id="success-outlined"
+                                            autocomplete="off" checked>
+                                        <label class="btn btn-outline-success" for="success-outlined">Yes</label>
 
-                                    <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined"
-                                        autocomplete="off">
-                                    <label class="btn btn-outline-danger" for="danger-outlined"> No</label>
+                                        <input type="radio" class="btn-check" name="options-outlined" id="danger-outlined"
+                                            autocomplete="off">
+                                        <label class="btn btn-outline-danger" for="danger-outlined"> No</label>
+                                        </div>
+                                    </div>
+
+                                    <p>Give Commission When Someone Invest.</p>
+                                    <input type="radio" class="btn-check" name="invest" id="success-invest"
+                                        autocomplete="off" >
+                                    <label class="btn btn-outline-success" for="success-invest">Yes</label>
+
+                                    <input type="radio" class="btn-check" name="invest" id="danger-invest"
+                                        autocomplete="off" checked>
+                                    <label class="btn btn-outline-danger" for="danger-invest"> No</label>
                                 </div>
                                 <a href="#" class="btn btn-primary">Submit</a>
                             </div>
+
 
                             <div class="card">
                                 <div class="card-header">
@@ -82,18 +96,20 @@
                                 <div class="card-body">
                                         <div class="col-md-12 mb-1">
                                             <div class="input-group mb-3">
-                                                <input type="number" class="form-control"
+                                                <input type="number" id="levelCount" min="1" class="form-control"
                                                      aria-describedby="button-addon2">
                                                 <button class="btn btn-outline-secondary" type="button"
-                                                    id="button-addon2">Create Now</button>
+                                                    id="generateLevels">Create Now</button>
                                             </div>
                                         </div>
                                 </div>
                                 <a href="#" class="btn btn-primary">Submit</a>
                             </div>
+
                         </div>
 
                     </div>
                 </section>
             </div>
-            @endsection
+@endsection
+

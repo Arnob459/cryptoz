@@ -7,12 +7,10 @@
       <div class="row  justify-content-center align-items-center d-flex-row text-center mt-5">
 
 
-
-
         <div class="col-12  col-md-6 col-lg-6 mt-5">
           <div class="card shadow">
             <div class="card-body">
-              <h4 class="card-title mt-3 text-center">Verify Email</h4>
+              <h4 class="card-title mt-3 text-center">Verify Otp</h4>
               @if (session()->has('message'))
               <div class="alert alert-danger">
                 {{(session()->get('message'))}}
@@ -30,15 +28,15 @@
               </div>
                 @endif
 
-              <form method="POST" action="{{ route('show.otp') }}">
+              <form method="POST" action="{{ route('otp.confirm') }}">
                 @csrf
 
                 <div class="form-group input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"> <i class="fas fa-id-card-alt"></i> </span>
                   </div>
-                  <input id="email" name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email" >
-                  @error('email')
+                  <input id="otp" name="otp" type="text" class="form-control @error('otp') is-invalid @enderror" value="{{ old('otp') }}" placeholder="otp" >
+                  @error('otp')
                   <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                   </span>

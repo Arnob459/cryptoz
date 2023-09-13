@@ -29,7 +29,7 @@ class ForgotPasswordController extends Controller
     */
     public function showLinkRequestForm()
     {
-        return view('auth.passwords.email');
+        return view('user.auth.passwords.email');
     }
 
     public function showotp(Request $request)
@@ -55,7 +55,7 @@ class ForgotPasswordController extends Controller
             //     $message->to($request->email);
             //     $message->subject('Reset Password');
             // });
-            return view('auth.passwords.otp');
+            return view('user.auth.passwords.otp');
             }
             else{
                 return back()->with('message','please enter valid email');
@@ -83,7 +83,7 @@ class ForgotPasswordController extends Controller
         if( $dataa)
         {
 
-            return view('auth.passwords.newpassword',compact('data'));
+            return view('user.auth.passwords.newpassword',compact('data'));
         }
         else
         {
@@ -118,7 +118,7 @@ class ForgotPasswordController extends Controller
         }
         else{
 
-            return view('auth.passwords.newpassword',compact('data'))->with('message','New Password and Confirm Password is not matched');
+            return view('user.auth.passwords.newpassword',compact('data'))->with('message','New Password and Confirm Password is not matched');
 
 
         }
@@ -132,12 +132,12 @@ class ForgotPasswordController extends Controller
 
     public function createOtp()
     {
-        return view('auth.passwords.otp');
+        return view('user.auth.passwords.otp');
 
     }
     public function createnewPass()
     {
-        return view('auth.passwords.newpassword');
+        return view('user.auth.passwords.newpassword');
 
     }
 

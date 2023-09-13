@@ -36,6 +36,7 @@ Route::name('admin.')->group(function() {
 
 
         Route::get('/referrals', [ReferralController::class, 'Index'])->name('referral');
+        Route::post('/referral/levels', [ReferralController::class, 'getReferralLevels']);
         Route::get('/plan', [PlanController::class, 'Index'])->name('plan');
         Route::get('/rewards', [RewardsController::class, 'Index'])->name('rewards');
         Route::get('/allusers', [UserManageController::class, 'Index'])->name('allusers');

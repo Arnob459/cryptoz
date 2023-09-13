@@ -12,4 +12,6 @@ class ReferralController extends Controller
         $data['page_title'] = 'Manage Referral';
         return view('admin.referral.referral_list',$data);
     }
+
+
 }
