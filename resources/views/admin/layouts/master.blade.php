@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('assets/admin/css/shared/iconly.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/fontawesome-5.15.4/css/all.min.css') }}">
 
+
 </head>
 @include('admin.layouts.sidebar')
 <section class="section">
@@ -100,6 +101,7 @@
 <script src="{{ asset('assets/admin/js/app.js') }}"></script>
 
 @stack('datatable')
+@stack('js')
 </body>
 
 </html>

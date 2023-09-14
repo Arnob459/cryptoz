@@ -46,6 +46,8 @@ Route::name('admin.')->group(function() {
         Route::get('/plan', [PlanController::class, 'Index'])->name('plan');
         Route::get('/plan/create', [PlanController::class, 'planCreate'])->name('plan.create');
         Route::post('/plan/create', [PlanController::class, 'planStore'])->name('plan.store');
+        Route::get('plan/{id}/edit', [PlanController::class, 'planEdit'])->name('plan.edit');
+        Route::post('plan/{id}/edit', [PlanController::class, 'planUpdate'])->name('plan.update');
 
         //Basic Settings
         Route::get('settings/basic', [BasicSettingsController::class, 'basicSettings'])->name('settings');
