@@ -40,7 +40,22 @@ Route::name('admin.')->group(function() {
 
 
         Route::get('/rewards', [RewardsController::class, 'Index'])->name('rewards');
+
+        //Manage User
         Route::get('/allusers', [UserManageController::class, 'Index'])->name('allusers');
+        Route::get('/activeusers', [UserManageController::class, 'activeUsers'])->name('activeusers');
+        Route::get('/pendingusers', [UserManageController::class, 'pendingUsers'])->name('pendingusers');
+        Route::get('/blockedusers', [UserManageController::class, 'blockedUsers'])->name('blockedusers');
+        Route::get('/emailunverified', [UserManageController::class, 'emailUnverifiedUsers'])->name('emailunverified');
+        Route::get('/smsunverified', [UserManageController::class, 'smsUnverifiedUsers'])->name('smsunverified');
+
+
+
+
+        Route::get('users/{id}', [UserManageController::class, 'userEdit'])->name('user.edit');
+        Route::post('users/{id}', [UserManageController::class, 'userUpdate'])->name('user.update');
+
+
 
         //plan
         Route::get('/plan', [PlanController::class, 'Index'])->name('plan');

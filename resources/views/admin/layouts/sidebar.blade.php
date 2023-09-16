@@ -72,23 +72,23 @@
                         <span>Users Management</span>
                     </a>
                     <ul class="submenu ">
-                        <li class="submenu-item {{ Route::is('allusers') ? 'active' : '' }} ">
+                        <li class="submenu-item {{ Route::is('admin.allusers') ? 'active' : '' }} ">
                             <a href="{{ route('admin.allusers') }}">All Users</a>
                         </li>
-                        <li class="submenu-item ">
-                            <a href="">Active Users</a>
+                        <li class="submenu-item {{ Route::is('admin.activeusers') ? 'active' : '' }} ">
+                            <a href="{{ route('admin.activeusers') }}">Active Users</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="">Pending Users</a>
+                            <a href="{{ route('admin.pendingusers') }}">Pending Users</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="">Banned Users</a>
+                            <a href="{{ route('admin.blockedusers') }}">Block Users</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="">Email Unverified</a>
+                            <a href="{{ route('admin.emailunverified') }}">Email Unverified</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="">Sms Unverified</a>
+                            <a href="{{ route('admin.smsunverified') }}">Sms Unverified</a>
                         </li>
                     </ul>
                 </li>

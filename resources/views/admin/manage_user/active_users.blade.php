@@ -25,7 +25,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        @foreach ($all_users as $user)
+                                        @foreach ($active_users as $user)
                                         <td></td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->username }}</td>

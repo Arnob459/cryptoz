@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-6 col-lg-4 col-md-6">
                     <div class="card">
-                        <div class="card-body px-4 py-4-5">
+                        <div class="card-body ">
                             <div class="row">
                                 <div class="col-md-3  ">
                                     <div class="stats-icon green mb-2">

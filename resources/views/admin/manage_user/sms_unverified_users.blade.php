@@ -25,7 +25,7 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        @foreach ($all_users as $user)
+                                        @foreach ($sms_unverified_users as $user)
                                         <td></td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->username }}</td>
