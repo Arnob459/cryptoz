@@ -40,9 +40,14 @@ Route::name('admin.')->group(function() {
         Route::post('/deposit/commission', [ReferralController::class, 'commissionUpdate'])->name('commission.update');
 
         //Rewards
-        Route::get('/rewards', [RewardsController::class, 'Index'])->name('rewards');
-        Route::get('rewards/{id}/edit', [RewardsController::class, 'rewardEdit'])->name('reward.edit');
-        Route::post('rewards/{id}/edit', [RewardsController::class, 'rewardUpdate'])->name('reward.update');
+        Route::get('/reward', [RewardsController::class, 'Index'])->name('rewards');
+        Route::get('reward/{id}/edit', [RewardsController::class, 'rewardEdit'])->name('reward.edit');
+        Route::post('reward/{id}/edit', [RewardsController::class, 'rewardUpdate'])->name('reward.update');
+
+        Route::get('reward/{id}', [RewardsController::class, 'levelList'])->name('reward.level.list');
+        Route::get('reward-edit/{id}', [RewardsController::class, 'levelEdit'])->name('reward.level.edit');
+        Route::put('reward-update', [RewardsController::class, 'levelUpdate'])->name('reward.level.update');
+        Route::get('reward/delete/{id}', [RewardsController::class, 'levelDelete'])->name('reward.level.delete');
 
         //Manage User
         Route::get('/allusers', [UserManageController::class, 'Index'])->name('allusers');

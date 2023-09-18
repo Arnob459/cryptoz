@@ -27,9 +27,20 @@
 
                                     <tr>
                                         <td>{{ $reward->id }}</td>
-                                        <td>{{ $reward->name }}</td>
-                                        <td>{{ $reward->image }}</td>
-                                        <td>{{ $reward->hours }}</td>
+                                        <td>
+                                            {{ $reward->name }}</td>
+                                        <td>
+                                            <div class="avatar avatar-xl  ">
+                                            <img src="{{ asset('assets/admin/images/rewards/'.$reward->image) }}" alt="" srcset="">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @if ($reward->time_limit == 1)
+                                            {{ $reward->hours }} hours
+                                            @else
+                                            Lifetime
+                                            @endif
+                                            </td>
                                         <td>
                                             @if ($reward->status == 1)
                                             <span class="badge bg-success">Active</span>
@@ -38,7 +49,7 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a href="#" class="btn icon btn-info"><i class="bi bi-info-circle"></i></a>
+                                            <a href="{{ route('admin.reward.level.list',$reward->id) }}" class="btn icon btn-info" ><i class="fa fa-eye" ></i></a>
                                             <a href="{{ route('admin.reward.edit',$reward->id) }}" class="btn icon btn-primary"><i class="bi bi-pencil"></i></a>
 
                                         </td>

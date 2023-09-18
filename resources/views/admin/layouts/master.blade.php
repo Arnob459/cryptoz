@@ -103,6 +103,7 @@
 @stack('datatable')
 
 @stack('js')
+@stack('reward')
 @stack('ref')
 </body>
 

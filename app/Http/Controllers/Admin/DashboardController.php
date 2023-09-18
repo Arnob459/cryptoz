@@ -17,6 +17,14 @@ class DashboardController extends Controller
     //
     public function Index(){
        $data['page_title'] = 'Dashboard';
+       $data['all_users'] = User::all();
+       $data['active_users'] = User::where('status',1)->get();
+       $data['pending_users'] = User::where('status',2)->get();
+       $data['blocked_users'] = User::where('status',3)->get();
+       $data['email_verified_users'] = User::where('email_verify',1)->get();
+       $data['email_unverified_users'] = User::where('email_verify',0)->get();
+       $data['sms_verified_users'] = User::where('sms_verify',1)->get();
+       $data['sms_unverified_users'] = User::where('sms_verify',0)->get();
 
         return view('admin.dashboard',$data);
     }

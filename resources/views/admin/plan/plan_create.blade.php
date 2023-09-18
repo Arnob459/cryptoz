@@ -92,7 +92,7 @@
 
 
 
-                <button type="submit" class="btn btn-success custom-button me-1 mb-1">Submit</button>
+                <button type="submit" class="btn btn-success  me-1 mb-1">Submit</button>
 
             </form>
 
