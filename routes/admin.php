@@ -34,12 +34,15 @@ Route::name('admin.')->group(function() {
         Route::get('/change/password',[DashboardController::class,'ChangePassword'])->name('password');
         Route::post('/change/password',[DashboardController::class,'UpdatePassword'])->name('password.update');
 
-
+        //Referral
         Route::get('/referrals', [ReferralController::class, 'Index'])->name('referral');
-        Route::post('/referral/levels', [ReferralController::class, 'getReferralLevels']);
+        Route::post('/referral/levels', [ReferralController::class, 'levelStore'])->name('levels.store');
+        Route::post('/deposit/commission', [ReferralController::class, 'commissionUpdate'])->name('commission.update');
 
-
+        //Rewards
         Route::get('/rewards', [RewardsController::class, 'Index'])->name('rewards');
+        Route::get('rewards/{id}/edit', [RewardsController::class, 'rewardEdit'])->name('reward.edit');
+        Route::post('rewards/{id}/edit', [RewardsController::class, 'rewardUpdate'])->name('reward.update');
 
         //Manage User
         Route::get('/allusers', [UserManageController::class, 'Index'])->name('allusers');
@@ -48,9 +51,6 @@ Route::name('admin.')->group(function() {
         Route::get('/blockedusers', [UserManageController::class, 'blockedUsers'])->name('blockedusers');
         Route::get('/emailunverified', [UserManageController::class, 'emailUnverifiedUsers'])->name('emailunverified');
         Route::get('/smsunverified', [UserManageController::class, 'smsUnverifiedUsers'])->name('smsunverified');
-
-
-
 
         Route::get('users/{id}', [UserManageController::class, 'userEdit'])->name('user.edit');
         Route::post('users/{id}', [UserManageController::class, 'userUpdate'])->name('user.update');
