@@ -210,6 +210,57 @@
                     </ul>
                 </li>
 
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="fas fa-book"></i>
+                        <span>Home Page</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.banner') }}">Banner</a>
+                        </li>
+                         <li class="submenu-item ">
+                            <a href="{{ route('admin.slider') }}">Slider</a>
+                        </li>
+
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.services') }}">Services</a>
+                        </li>
+
+                       <li class="submenu-item ">
+                            <a href="{{ route('admin.about') }}">About Us</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.counter') }}">Counter Section</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.work') }}">How it's Work</a>
+                        </li>
+                         <li class="submenu-item ">
+                            <a href="{{ route('admin.faq') }}">Faq </a>
+                        </li>
+                        {{--<li class="submenu-item ">
+                            <a href="{{ route('admin.service') }}">Why Choose Us </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.service') }}">Testimonial</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.service') }}">Blog</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.service') }}">Title Subtitle </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.service') }}">Privacy </a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.service') }}">Terms</a>
+                        </li> --}}
+
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </div>
