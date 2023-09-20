@@ -105,6 +105,8 @@
 @stack('js')
 @stack('reward')
 @stack('ref')
+@stack('nicEdit')
+
 </body>
 
 </html>

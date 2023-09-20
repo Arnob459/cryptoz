@@ -70,10 +70,36 @@ Route::name('admin.')->group(function() {
         Route::post('plan/{id}/edit', [PlanController::class, 'planUpdate'])->name('plan.update');
 
         //Basic Settings
+
+        //Basic
         Route::get('settings/basic', [BasicSettingsController::class, 'basicSettings'])->name('settings');
         Route::post('settings/basic', [BasicSettingsController::class, 'basicUpdate'])->name('basic.update');
+
+        //logo
         Route::get('settings/logo-favicon', [BasicSettingsController::class, 'logo'])->name('logo');
         Route::post('settings/logo-favicon', [BasicSettingsController::class, 'logoUpdate'])->name('logo.update');
+
+
+        //Contact
+        Route::get('settings/contact', [BasicSettingsController::class, 'Contact'])->name('contact');
+        Route::post('settings/contact', [BasicSettingsController::class, 'contactUpdate'])->name('contact.update');
+
+        //Breadcrumb
+        Route::get('settings/breadcrumb', [BasicSettingsController::class, 'Breadcrumb'])->name('breadcrumb');
+        Route::post('settings/breadcrumb', [BasicSettingsController::class, 'breadcrumbUpdate'])->name('breadcrumb.update');
+
+        //Social
+        Route::get('settings/social/create', [BasicSettingsController::class, 'socialCreate'])->name('social.create');
+        Route::post('settings/social/create', [BasicSettingsController::class, 'socialStore'])->name('social.store');
+        Route::get('settings/social/edit/{id}', [BasicSettingsController::class, 'socialEdit'])->name('social.edit');
+        Route::post('settings/social/edit/{id}', [BasicSettingsController::class, 'socialUpdate'])->name('social.update');
+        Route::get('settings/social/delete/{id}', [BasicSettingsController::class, 'socialDelete'])->name('social.delete');
+
+        //Footer
+        Route::get('settings/footer', [BasicSettingsController::class, 'Footer'])->name('footer');
+        Route::post('settings/footer', [BasicSettingsController::class, 'footerUpdate'])->name('footer.update');
+
+        //End Basic Settings
 
 
         //Home Page
@@ -133,10 +159,62 @@ Route::name('admin.')->group(function() {
         Route::post('home/faq/edit/{id}', [PagesController::class, 'faqUpdate'])->name('faq.update');
         Route::get('home/faq/delete/{id}', [PagesController::class, 'faqDelete'])->name('faq.delete');
 
+        //Why Choose us
+        Route::get('home/choose', [PagesController::class, 'Choose'])->name('choose');
+        Route::post('home/choose', [PagesController::class, 'chooseSectionUpdate'])->name('choosesection.update');
 
+        Route::get('home/choose/create', [PagesController::class, 'chooseCreate'])->name('choose.create');
+        Route::post('home/choose/create', [PagesController::class, 'chooseStore'])->name('choose.store');
+        Route::get('home/choose/edit/{id}', [PagesController::class, 'chooseEdit'])->name('choose.edit');
+        Route::post('home/choose/edit/{id}', [PagesController::class, 'chooseUpdate'])->name('choose.update');
+        Route::get('home/choose/delete/{id}', [PagesController::class, 'chooseDelete'])->name('choose.delete');
 
+        //Testimonial
+        Route::get('home/testimonial', [PagesController::class, 'Testimonial'])->name('testimonial');
+        Route::post('home/testimonial', [PagesController::class, 'testimonialSectionUpdate'])->name('testimonialsection.update');
 
+        Route::get('home/testimonial/create', [PagesController::class, 'testimonialCreate'])->name('testimonial.create');
+        Route::post('home/testimonial/create', [PagesController::class, 'testimonialStore'])->name('testimonial.store');
+        Route::get('home/testimonial/edit/{id}', [PagesController::class, 'testimonialEdit'])->name('testimonial.edit');
+        Route::post('home/testimonial/edit/{id}', [PagesController::class, 'testimonialUpdate'])->name('testimonial.update');
+        Route::get('home/testimonial/delete/{id}', [PagesController::class, 'testimonialDelete'])->name('testimonial.delete');
 
+        //Blog
+        Route::get('home/blog', [PagesController::class, 'Blog'])->name('blog');
+        Route::post('home/blog', [PagesController::class, 'blogSectionUpdate'])->name('blogsection.update');
+
+        Route::get('home/blog/create', [PagesController::class, 'blogCreate'])->name('blog.create');
+        Route::post('home/blog/create', [PagesController::class, 'blogStore'])->name('blog.store');
+        Route::get('home/blog/edit/{id}', [PagesController::class, 'blogEdit'])->name('blog.edit');
+        Route::post('home/blog/edit/{id}', [PagesController::class, 'blogUpdate'])->name('blog.update');
+        Route::get('home/blog/delete/{id}', [PagesController::class, 'blogDelete'])->name('blog.delete');
+
+        //Title and Subtitle
+        Route::get('home/title-subtitle', [PagesController::class, 'titleSubtitle'])->name('titleSubtitle');
+        Route::post('home/title-subtitle', [PagesController::class, 'titleSubtitleUpdate'])->name('titleSubtitle.update');
+
+        //privacy
+        Route::get('home/privacy', [PagesController::class, 'Privacy'])->name('privacy');
+        Route::post('home/privacy', [PagesController::class, 'privacyUpdate'])->name('privacy.update');
+
+        //Terms
+        Route::get('home/terms', [PagesController::class, 'Terms'])->name('terms');
+        Route::post('home/terms', [PagesController::class, 'termsUpdate'])->name('terms.update');
+
+        //End Home
+
+        //SMS Manager
+        //Api
+        Route::get('sms-template/global', [SmsController::class, 'smsApi'])->name('sms.api');
+        Route::post('sms-template/global', [SmsController::class, 'smsApiUpdate'])->name('sms.api.update');
+
+        //Templete
+        Route::get('sms-template/index', [SmsController::class, 'smsTemplete'])->name('sms.templete');
+        Route::get('sms-template/edit/{id}', [SmsController::class, 'smsTempleteEdit'])->name('sms.templete.edit');
+        Route::post('sms-template/edit/{id}', [SmsController::class, 'smsTempleteUpdate'])->name('sms.templete.update');
+
+        //Test sms
+        Route::get('sms-template/test', [SmsController::class, 'smsTest'])->name('sms.test');
 
 
 

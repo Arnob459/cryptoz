@@ -1,0 +1,94 @@
+@extends('admin.layouts.master')
+
+@section('content')
+
+
+<section class="section">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">Blog Create</h4>
+        </div>
+        <hr>
+
+        <div class="card-body">
+            <form action="{{ route('admin.blog.store') }}" method="post" enctype="multipart/form-data">
+                @csrf
+            <div class="row">
+
+                <div class="form-group col-md-4 mb-3">
+                    <label class="col-lg-6 mb-2 ">Upload image  <span class="required-label">*</span></label>
+                    <div class="col-lg-12 mb-3">
+                        <div class="input-file input-file-image">
+
+                            <input type="file" class="form-control " id="uploadbgImg" name="image" accept="image/*" hidden >
+                            <label for="uploadbgImg" class="btn btn-primary rounded-pill "><i class="fa fa-file-image"></i> Upload </label>
+                        </div>
+                    </div>
+                    <p class="text-warning mb-0">Image Will Resize 1280x960 px</p>
+                    <p class="text-warning mb-0">Only jpg, jpeg, png image allowed.</p>
+                </div>
+
+
+                <div class="col-md-8">
+                    <div class="row mb-2">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="basicInput">Enter Title</label>
+                                <input type="text" name="title" class="form-control form-control-lg" id="basicInput" placeholder="Enter Title" required>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="editor">Enter Description</label>
+                                <textarea type="text" cols="10" rows="10" class="form-control" id="editor" name="description" required ></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-success  me-1 mb-1">Submit</button>
+
+            </form>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- <script src="https://cdn.tiny.cloud/1/YOUR_API_KEY/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script type="text/javascript">
+    tinymce.init({
+        selector: '#editor',
+        plugins: 'autolink link image lists print preview',
+        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright',
+    });
+</script> --}}
+
+
+{{-- @push('nicEdit') --}}
+{{-- <script type="text/javascript" src="//js.nicedit.com/nicEdit-latest.js"></script>
+<!-- Include NicEdit from a CDN -->
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    bkLib.onDomLoaded(function() {
+        nicEditors.editors.push(
+            new nicEditor().panelInstance(
+                document.getElementById('myNicEditor')
+            )
+        );
+    });
+    //]]>
+    </script> --}}
+
+{{-- @endpush --}}
+
+
+
+@endsection
+
+

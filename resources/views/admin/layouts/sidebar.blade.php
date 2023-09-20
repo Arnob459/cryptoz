@@ -207,6 +207,19 @@
                         <li class="submenu-item ">
                             <a href="{{ route('admin.logo') }}">Logo & favicon</a>
                         </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.contact') }}">Contact</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.breadcrumb') }}">Breadcrumb</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.social.create') }}">Social</a>
+                        </li>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.footer') }}">Footer Section</a>
+                        </li>
+
                     </ul>
                 </li>
 
@@ -239,24 +252,40 @@
                          <li class="submenu-item ">
                             <a href="{{ route('admin.faq') }}">Faq </a>
                         </li>
-                        {{--<li class="submenu-item ">
-                            <a href="{{ route('admin.service') }}">Why Choose Us </a>
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.choose') }}">Why Choose Us </a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ route('admin.service') }}">Testimonial</a>
+                            <a href="{{ route('admin.testimonial') }}">Testimonial</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ route('admin.service') }}">Blog</a>
+                            <a href="{{ route('admin.blog') }}">Blog</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ route('admin.service') }}">Title Subtitle </a>
+                            <a href="{{ route('admin.titleSubtitle') }}">Title Subtitle </a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ route('admin.service') }}">Privacy </a>
+                            <a href="{{ route('admin.privacy') }}">Privacy </a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="{{ route('admin.service') }}">Terms</a>
-                        </li> --}}
+                            <a href="{{ route('admin.terms') }}">Terms</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i class="fas fa-mobile"></i>
+                        <span>SMS Manager</span>
+                    </a>
+                    <ul class="submenu ">
+                        <li class="submenu-item ">
+                            <a href="{{ route('admin.sms.api') }}">Api Settings</a>
+                        </li>
+                         <li class="submenu-item ">
+                            <a href="{{ route('admin.sms.templete') }}">SMS Templetes</a>
+                        </li>
 
                     </ul>
                 </li>
