@@ -101,10 +101,10 @@
                     </a>
                     <ul class="submenu ">
                         <li class="submenu-item ">
-                            <a href="">Subscribers</a>
+                            <a href="{{ route('admin.subscribers') }}">Subscribers</a>
                         </li>
                         <li class="submenu-item ">
-                            <a href="">Mail to Subscribers</a>
+                            <a href="{{ route('admin.subscribers.mail') }}">Mail to Subscribers</a>
                         </li>
                     </ul>
                 </li>
@@ -273,6 +273,15 @@
 
                     </ul>
                 </li>
+                <li
+                    class="sidebar-item  ">
+                    <a href="{{ route('admin.language') }}" class="sidebar-link">
+                        <i class="fas fa-language"></i>
+                        <span>Language Manager </span>
+                    </a>
+                </li>
+
+
 
                 <li class="sidebar-item  has-sub">
                     <a href="#" class='sidebar-link'>

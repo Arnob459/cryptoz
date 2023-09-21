@@ -39,6 +39,13 @@ Route::name('admin.')->group(function() {
         Route::post('/referral/levels', [ReferralController::class, 'levelStore'])->name('levels.store');
         Route::post('/deposit/commission', [ReferralController::class, 'commissionUpdate'])->name('commission.update');
 
+        //plan
+        Route::get('/plan', [PlanController::class, 'Index'])->name('plan');
+        Route::get('/plan/create', [PlanController::class, 'planCreate'])->name('plan.create');
+        Route::post('/plan/create', [PlanController::class, 'planStore'])->name('plan.store');
+        Route::get('plan/{id}/edit', [PlanController::class, 'planEdit'])->name('plan.edit');
+        Route::post('plan/{id}/edit', [PlanController::class, 'planUpdate'])->name('plan.update');
+
         //Rewards
         Route::get('/reward', [RewardsController::class, 'Index'])->name('rewards');
         Route::get('reward/{id}/edit', [RewardsController::class, 'rewardEdit'])->name('reward.edit');
@@ -61,13 +68,10 @@ Route::name('admin.')->group(function() {
         Route::post('users/{id}', [UserManageController::class, 'userUpdate'])->name('user.update');
 
 
-
-        //plan
-        Route::get('/plan', [PlanController::class, 'Index'])->name('plan');
-        Route::get('/plan/create', [PlanController::class, 'planCreate'])->name('plan.create');
-        Route::post('/plan/create', [PlanController::class, 'planStore'])->name('plan.store');
-        Route::get('plan/{id}/edit', [PlanController::class, 'planEdit'])->name('plan.edit');
-        Route::post('plan/{id}/edit', [PlanController::class, 'planUpdate'])->name('plan.update');
+        //Subscribers
+        Route::get('/subscriber', [SubscriberController::class, 'Index'])->name('subscribers');
+        Route::get('/subscriber/mail', [SubscriberController::class, 'Mail'])->name('subscribers.mail');
+        Route::post('/subscriber/mail', [SubscriberController::class, 'sendEmail'])->name('subscribers.mail.send');
 
         //Basic Settings
 
@@ -105,103 +109,115 @@ Route::name('admin.')->group(function() {
         //Home Page
 
         //Banner
-        Route::get('home/banner', [PagesController::class, 'Banner'])->name('banner');
-        Route::post('home/banner', [PagesController::class, 'bannerUpdate'])->name('banner.update');
+        Route::get('home/banner', [BannerController::class, 'Banner'])->name('banner');
+        Route::post('home/banner', [BannerController::class, 'bannerUpdate'])->name('banner.update');
         //Slider
-        Route::get('home/slider', [PagesController::class, 'Slider'])->name('slider');
-        Route::get('home/slider/create', [PagesController::class, 'sliderCreate'])->name('slider.create');
-        Route::post('home/slider/create', [PagesController::class, 'sliderStore'])->name('slider.store');
-        Route::get('home/slider/edit/{id}', [PagesController::class, 'sliderEdit'])->name('slider.edit');
-        Route::post('home/slider/edit/{id}', [PagesController::class, 'sliderUpdate'])->name('slider.update');
-        Route::get('home/slider/delete/{id}', [PagesController::class, 'sliderDelete'])->name('slider.delete');
+        Route::get('home/slider', [SliderController::class, 'Slider'])->name('slider');
+        Route::get('home/slider/create', [SliderController::class, 'sliderCreate'])->name('slider.create');
+        Route::post('home/slider/create', [SliderController::class, 'sliderStore'])->name('slider.store');
+        Route::get('home/slider/edit/{id}', [SliderController::class, 'sliderEdit'])->name('slider.edit');
+        Route::post('home/slider/edit/{id}', [SliderController::class, 'sliderUpdate'])->name('slider.update');
+        Route::get('home/slider/delete/{id}', [SliderController::class, 'sliderDelete'])->name('slider.delete');
 
         //Services
-        Route::get('home/services', [PagesController::class, 'Service'])->name('services');
-        Route::post('home/services', [PagesController::class, 'serviceModify'])->name('serviceupdate');
+        Route::get('home/services', [ServiceController::class, 'Service'])->name('services');
+        Route::post('home/services', [ServiceController::class, 'serviceSectionUpdate'])->name('serviceupdate');
 
-        Route::get('home/services/create', [PagesController::class, 'servicesCreate'])->name('services.create');
-        Route::post('home/services/create', [PagesController::class, 'servicesStore'])->name('services.store');
-        Route::get('home/services/edit/{id}', [PagesController::class, 'servicesEdit'])->name('services.edit');
-        Route::post('home/services/edit/{id}', [PagesController::class, 'servicesUpdate'])->name('services.update');
-        Route::get('home/services/delete/{id}', [PagesController::class, 'servicesDelete'])->name('services.delete');
+        Route::get('home/services/create', [ServiceController::class, 'servicesCreate'])->name('services.create');
+        Route::post('home/services/create', [ServiceController::class, 'servicesStore'])->name('services.store');
+        Route::get('home/services/edit/{id}', [ServiceController::class, 'servicesEdit'])->name('services.edit');
+        Route::post('home/services/edit/{id}', [ServiceController::class, 'servicesUpdate'])->name('services.update');
+        Route::get('home/services/delete/{id}', [ServiceController::class, 'servicesDelete'])->name('services.delete');
 
         //About
-        Route::get('home/about', [PagesController::class, 'About'])->name('about');
-        Route::post('home/about', [PagesController::class, 'aboutUpdate'])->name('about.update');
+        Route::get('home/about', [AboutController::class, 'About'])->name('about');
+        Route::post('home/about', [AboutController::class, 'aboutUpdate'])->name('about.update');
 
         //Counter
-        Route::get('home/counter', [PagesController::class, 'Counter'])->name('counter');
-        Route::post('home/counter', [PagesController::class, 'counterSectionUpdate'])->name('countersection.update');
+        Route::get('home/counter', [CounterController::class, 'Counter'])->name('counter');
+        Route::post('home/counter', [CounterController::class, 'counterSectionUpdate'])->name('countersection.update');
 
-        Route::get('home/counter/create', [PagesController::class, 'counterCreate'])->name('counter.create');
-        Route::post('home/counter/create', [PagesController::class, 'counterStore'])->name('counter.store');
-        Route::get('home/counter/edit/{id}', [PagesController::class, 'counterEdit'])->name('counter.edit');
-        Route::post('home/counter/edit/{id}', [PagesController::class, 'counterUpdate'])->name('counter.update');
-        Route::get('home/counter/delete/{id}', [PagesController::class, 'counterDelete'])->name('counter.delete');
+        Route::get('home/counter/create', [CounterController::class, 'counterCreate'])->name('counter.create');
+        Route::post('home/counter/create', [CounterController::class, 'counterStore'])->name('counter.store');
+        Route::get('home/counter/edit/{id}', [CounterController::class, 'counterEdit'])->name('counter.edit');
+        Route::post('home/counter/edit/{id}', [CounterController::class, 'counterUpdate'])->name('counter.update');
+        Route::get('home/counter/delete/{id}', [CounterController::class, 'counterDelete'])->name('counter.delete');
 
         //Work
-        Route::get('home/work', [PagesController::class, 'Work'])->name('work');
-        Route::post('home/work', [PagesController::class, 'workSectionUpdate'])->name('worksection.update');
+        Route::get('home/work', [WorkController::class, 'Work'])->name('work');
+        Route::post('home/work', [WorkController::class, 'workSectionUpdate'])->name('worksection.update');
 
-        Route::get('home/work/create', [PagesController::class, 'workCreate'])->name('work.create');
-        Route::post('home/work/create', [PagesController::class, 'workStore'])->name('work.store');
-        Route::get('home/work/edit/{id}', [PagesController::class, 'workEdit'])->name('work.edit');
-        Route::post('home/work/edit/{id}', [PagesController::class, 'workUpdate'])->name('work.update');
-        Route::get('home/work/delete/{id}', [PagesController::class, 'workDelete'])->name('work.delete');
+        Route::get('home/work/create', [WorkController::class, 'workCreate'])->name('work.create');
+        Route::post('home/work/create', [WorkController::class, 'workStore'])->name('work.store');
+        Route::get('home/work/edit/{id}', [WorkController::class, 'workEdit'])->name('work.edit');
+        Route::post('home/work/edit/{id}', [WorkController::class, 'workUpdate'])->name('work.update');
+        Route::get('home/work/delete/{id}', [WorkController::class, 'workDelete'])->name('work.delete');
 
         //Faq
-        Route::get('home/faq', [PagesController::class, 'Faq'])->name('faq');
-        Route::post('home/faq', [PagesController::class, 'faqSectionUpdate'])->name('faqsection.update');
+        Route::get('home/faq', [FaqController::class, 'Faq'])->name('faq');
+        Route::post('home/faq', [FaqController::class, 'faqSectionUpdate'])->name('faqsection.update');
 
-        Route::get('home/faq/create', [PagesController::class, 'faqCreate'])->name('faq.create');
-        Route::post('home/faq/create', [PagesController::class, 'faqStore'])->name('faq.store');
-        Route::get('home/faq/edit/{id}', [PagesController::class, 'faqEdit'])->name('faq.edit');
-        Route::post('home/faq/edit/{id}', [PagesController::class, 'faqUpdate'])->name('faq.update');
-        Route::get('home/faq/delete/{id}', [PagesController::class, 'faqDelete'])->name('faq.delete');
+        Route::get('home/faq/create', [FaqController::class, 'faqCreate'])->name('faq.create');
+        Route::post('home/faq/create', [FaqController::class, 'faqStore'])->name('faq.store');
+        Route::get('home/faq/edit/{id}', [FaqController::class, 'faqEdit'])->name('faq.edit');
+        Route::post('home/faq/edit/{id}', [FaqController::class, 'faqUpdate'])->name('faq.update');
+        Route::get('home/faq/delete/{id}', [FaqController::class, 'faqDelete'])->name('faq.delete');
 
         //Why Choose us
-        Route::get('home/choose', [PagesController::class, 'Choose'])->name('choose');
-        Route::post('home/choose', [PagesController::class, 'chooseSectionUpdate'])->name('choosesection.update');
+        Route::get('home/choose', [ChooseUsController::class, 'Choose'])->name('choose');
+        Route::post('home/choose', [ChooseUsController::class, 'chooseSectionUpdate'])->name('choosesection.update');
 
-        Route::get('home/choose/create', [PagesController::class, 'chooseCreate'])->name('choose.create');
-        Route::post('home/choose/create', [PagesController::class, 'chooseStore'])->name('choose.store');
-        Route::get('home/choose/edit/{id}', [PagesController::class, 'chooseEdit'])->name('choose.edit');
-        Route::post('home/choose/edit/{id}', [PagesController::class, 'chooseUpdate'])->name('choose.update');
-        Route::get('home/choose/delete/{id}', [PagesController::class, 'chooseDelete'])->name('choose.delete');
+        Route::get('home/choose/create', [ChooseUsController::class, 'chooseCreate'])->name('choose.create');
+        Route::post('home/choose/create', [ChooseUsController::class, 'chooseStore'])->name('choose.store');
+        Route::get('home/choose/edit/{id}', [ChooseUsController::class, 'chooseEdit'])->name('choose.edit');
+        Route::post('home/choose/edit/{id}', [ChooseUsController::class, 'chooseUpdate'])->name('choose.update');
+        Route::get('home/choose/delete/{id}', [ChooseUsController::class, 'chooseDelete'])->name('choose.delete');
 
         //Testimonial
-        Route::get('home/testimonial', [PagesController::class, 'Testimonial'])->name('testimonial');
-        Route::post('home/testimonial', [PagesController::class, 'testimonialSectionUpdate'])->name('testimonialsection.update');
+        Route::get('home/testimonial', [TestimonialController::class, 'Testimonial'])->name('testimonial');
+        Route::post('home/testimonial', [TestimonialController::class, 'testimonialSectionUpdate'])->name('testimonialsection.update');
 
-        Route::get('home/testimonial/create', [PagesController::class, 'testimonialCreate'])->name('testimonial.create');
-        Route::post('home/testimonial/create', [PagesController::class, 'testimonialStore'])->name('testimonial.store');
-        Route::get('home/testimonial/edit/{id}', [PagesController::class, 'testimonialEdit'])->name('testimonial.edit');
-        Route::post('home/testimonial/edit/{id}', [PagesController::class, 'testimonialUpdate'])->name('testimonial.update');
-        Route::get('home/testimonial/delete/{id}', [PagesController::class, 'testimonialDelete'])->name('testimonial.delete');
+        Route::get('home/testimonial/create', [TestimonialController::class, 'testimonialCreate'])->name('testimonial.create');
+        Route::post('home/testimonial/create', [TestimonialController::class, 'testimonialStore'])->name('testimonial.store');
+        Route::get('home/testimonial/edit/{id}', [TestimonialController::class, 'testimonialEdit'])->name('testimonial.edit');
+        Route::post('home/testimonial/edit/{id}', [TestimonialController::class, 'testimonialUpdate'])->name('testimonial.update');
+        Route::get('home/testimonial/delete/{id}', [TestimonialController::class, 'testimonialDelete'])->name('testimonial.delete');
 
         //Blog
-        Route::get('home/blog', [PagesController::class, 'Blog'])->name('blog');
-        Route::post('home/blog', [PagesController::class, 'blogSectionUpdate'])->name('blogsection.update');
+        Route::get('home/blog', [BlogController::class, 'Blog'])->name('blog');
+        Route::post('home/blog', [BlogController::class, 'blogSectionUpdate'])->name('blogsection.update');
 
-        Route::get('home/blog/create', [PagesController::class, 'blogCreate'])->name('blog.create');
-        Route::post('home/blog/create', [PagesController::class, 'blogStore'])->name('blog.store');
-        Route::get('home/blog/edit/{id}', [PagesController::class, 'blogEdit'])->name('blog.edit');
-        Route::post('home/blog/edit/{id}', [PagesController::class, 'blogUpdate'])->name('blog.update');
-        Route::get('home/blog/delete/{id}', [PagesController::class, 'blogDelete'])->name('blog.delete');
+        Route::get('home/blog/create', [BlogController::class, 'blogCreate'])->name('blog.create');
+        Route::post('home/blog/create', [BlogController::class, 'blogStore'])->name('blog.store');
+        Route::get('home/blog/edit/{id}', [BlogController::class, 'blogEdit'])->name('blog.edit');
+        Route::post('home/blog/edit/{id}', [BlogController::class, 'blogUpdate'])->name('blog.update');
+        Route::get('home/blog/delete/{id}', [BlogController::class, 'blogDelete'])->name('blog.delete');
 
         //Title and Subtitle
-        Route::get('home/title-subtitle', [PagesController::class, 'titleSubtitle'])->name('titleSubtitle');
-        Route::post('home/title-subtitle', [PagesController::class, 'titleSubtitleUpdate'])->name('titleSubtitle.update');
+        Route::get('home/title-subtitle', [TitleSubtitleController::class, 'titleSubtitle'])->name('titleSubtitle');
+        Route::post('home/title-subtitle', [TitleSubtitleController::class, 'titleSubtitleUpdate'])->name('titleSubtitle.update');
 
         //privacy
-        Route::get('home/privacy', [PagesController::class, 'Privacy'])->name('privacy');
-        Route::post('home/privacy', [PagesController::class, 'privacyUpdate'])->name('privacy.update');
+        Route::get('home/privacy', [PrivacyController::class, 'Privacy'])->name('privacy');
+        Route::post('home/privacy', [PrivacyController::class, 'privacyUpdate'])->name('privacy.update');
 
         //Terms
-        Route::get('home/terms', [PagesController::class, 'Terms'])->name('terms');
-        Route::post('home/terms', [PagesController::class, 'termsUpdate'])->name('terms.update');
+        Route::get('home/terms', [TermsController::class, 'Terms'])->name('terms');
+        Route::post('home/terms', [TermsController::class, 'termsUpdate'])->name('terms.update');
 
         //End Home
+
+        //Language Manager
+        Route::get('language', [LanguageController::class, 'Language'])->name('language');
+        Route::post('language/create', [LanguageController::class, 'languageStore'])->name('language.store');
+        Route::get('language/edit/{id}', [LanguageController::class, 'languageEdit'])->name('language.edit');
+        Route::put('language/update', [LanguageController::class, 'languageUpdate'])->name('language.update');
+        Route::get('language/delete/{id}', [LanguageController::class, 'languageDelete'])->name('language.delete');
+
+        Route::get('language/view/{id}', [LanguageController::class, 'keywordEdit'])->name('keyword.edit');
+        Route::put('language/view/update', [LanguageController::class, 'KeywordUpdate'])->name('keyword.update');
+
+
 
         //SMS Manager
         //Api

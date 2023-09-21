@@ -48,7 +48,7 @@ class ReferralController extends Controller
 
 
 
-        return redirect()->route('admin.referral')->with('success','Levels Create Successfully');
+        return back()->with('success','Levels Create Successfully');
 
     }
 
@@ -69,7 +69,7 @@ class ReferralController extends Controller
         $info->save();
 
 
-        return redirect()->route('admin.referral')->with('success','Updated Successfully');
+        return back()->with('success','Updated Successfully');
 
     }
 

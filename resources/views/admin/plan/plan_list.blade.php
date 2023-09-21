@@ -29,7 +29,7 @@
                                     <tr>
                                         <td>{{ $plan->name }} </td>
                                         <td>
-                                            @if($plan->min_amount != null)
+                                            @if($plan->min_amount != 0)
                                              Min:{{ $gnl->currency_symbol }}   {{number_format($plan->min_amount)}} - Max:{{  $gnl->currency_symbol  }}  {{number_format($plan->max_amount)}}
                                             @else
                                             Fixed:{{  $gnl->currency_symbol  }}  {{number_format($plan->fixed_amount)}}

@@ -44,7 +44,7 @@ class BasicSettingsController extends Controller
         $info->ul = $request->ul;
         $info->ur = $request->ur;
         $info->save();
-        return redirect()->route('admin.settings')->with('success', "Basic Settings has been updated successfully");
+        return back()->with('success', "Basic Settings has been updated successfully");
     }
 
     public function logo(){
@@ -78,7 +78,7 @@ class BasicSettingsController extends Controller
         }
 
         $info->save();
-        return redirect()->route('admin.logo')->with('success', "Logo and Favicon has been updated successfully");
+        return back()->with('success', "Logo and Favicon has been updated successfully");
     }
 
     //Contact
@@ -102,7 +102,7 @@ class BasicSettingsController extends Controller
         $info->email = $request->email;
         $info->phone = $request->phone;
         $info->save();
-        return redirect()->route('admin.contact')->with('success', "Contact updated successfully");
+        return back()->with('success', "Contact updated successfully");
     }
 
     //Breadcrumb
@@ -129,7 +129,7 @@ class BasicSettingsController extends Controller
         }
 
         $info->save();
-        return redirect()->route('admin.breadcrumb')->with('success', "Breadcrumb updated successfully");
+        return back()->with('success', "Breadcrumb updated successfully");
     }
 
     //Social

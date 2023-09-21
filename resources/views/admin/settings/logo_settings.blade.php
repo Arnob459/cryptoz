@@ -19,7 +19,7 @@
                                 <div class="input-file input-file-image">
                                     <img class="img-upload-preview mb-2 " style="height:100px"   src="{{ asset('assets/admin/images/logo/'.$settings->logo) }}" alt="preview">
                                     <input type="file" class="form-control form-control-file" id="uploadImg" name="logo" accept="image/*" hidden >
-                                    <label for="uploadImg" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload a Logo</label>
+                                    <label for="uploadImg" class="btn btn-primary rounded-pill btn-lg"><i class="fa fa-file-image"></i> Upload a Logo</label>
                                 </div>
                             </div>
                             <p class="text-warning mb-0 mt-2">Upload 160pxX35px Logo for best quality.</p>
@@ -34,7 +34,7 @@
 
                                 <div class="input-file input-file-image">
                                     <input type="file" class="form-control form-control-file" id="uploadImgFavicon" name="favicon" accept="image/*" hidden >
-                                    <label for="uploadImgFavicon" class="btn btn-primary btn-round btn-lg"><i class="fa fa-file-image"></i> Upload a Favicon</label>
+                                    <label for="uploadImgFavicon" class="btn btn-primary rounded-pill btn-lg"><i class="fa fa-file-image"></i> Upload a Favicon</label>
                                 </div>
                             </div>
                             <p class="text-warning mb-0 mt-2">Upload 40pxX40px Favicon for best quality.</p>

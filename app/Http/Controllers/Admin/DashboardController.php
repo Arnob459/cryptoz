@@ -17,14 +17,14 @@ class DashboardController extends Controller
     //
     public function Index(){
        $data['page_title'] = 'Dashboard';
-       $data['all_users'] = User::all();
-       $data['active_users'] = User::where('status',1)->get();
-       $data['pending_users'] = User::where('status',2)->get();
-       $data['blocked_users'] = User::where('status',3)->get();
-       $data['email_verified_users'] = User::where('email_verify',1)->get();
-       $data['email_unverified_users'] = User::where('email_verify',0)->get();
-       $data['sms_verified_users'] = User::where('sms_verify',1)->get();
-       $data['sms_unverified_users'] = User::where('sms_verify',0)->get();
+       $data['all_users'] = User::count();
+       $data['active_users'] = User::where('status',1)->count();
+       $data['pending_users'] = User::where('status',2)->count();
+       $data['blocked_users'] = User::where('status',3)->count();
+       $data['email_verified_users'] = User::where('email_verify',1)->count();
+       $data['email_unverified_users'] = User::where('email_verify',0)->count();
+       $data['sms_verified_users'] = User::where('sms_verify',1)->count();
+       $data['sms_unverified_users'] = User::where('sms_verify',0)->count();
 
         return view('admin.dashboard',$data);
     }
@@ -65,7 +65,7 @@ class DashboardController extends Controller
 
         $user->save();
 
-        return redirect()->route('admin.profile')->with('success','Admin Information Updated Successfully');
+        return back()->with('success','Admin Information Updated Successfully');
     }
 
     public function ChangePassword() {
@@ -94,13 +94,13 @@ class DashboardController extends Controller
             }
 
             else{
-             return redirect()->route('admin.password')->with('error','New password and Confirm Password doesnot match');
+             return back()->with('error','New password and Confirm Password doesnot match');
             }
             $users->save();
-            return redirect()->route('admin.password')->with('success','Password changed Successfully');
+            return back()->with('success','Password changed Successfully');
         }
             else{
-                return redirect()->route('admin.password')->with('error','Old password doesnot match');
+                return back()->with('error','Old password doesnot match');
             }
 
     }

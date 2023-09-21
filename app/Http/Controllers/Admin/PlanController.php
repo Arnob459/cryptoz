@@ -14,7 +14,7 @@ class PlanController extends Controller
     //
     public function Index(){
         $data['page_title'] = 'Manage Plan';
-        $data['plans'] = Plan::all();
+        $data['plans'] = Plan::orderBy('id', 'desc')->get();
 
         return view('admin.plan.plan_list',$data);
     }
@@ -54,7 +54,7 @@ class PlanController extends Controller
         $plan->save();
 
 
-        return redirect()->route('admin.plan.create')->with('success','New Plan has been Create Successfully');
+        return back()->with('success','New Plan has been Create Successfully');
 
     }
 
@@ -91,16 +91,16 @@ class PlanController extends Controller
         if ($request->input('amount_type') === 'range') {
             $plan->min_amount = $request->input('min_amount');
             $plan->max_amount = $request->input('max_amount');
-            $plan->fixed_amount = null;
+            $plan->fixed_amount = 0;
 
         } elseif ($request->input('amount_type') === 'fixed') {
             $plan->fixed_amount = $request->input('fixed_amount');
-            $plan->min_amount = null;
-            $plan->max_amount = null;
+            $plan->min_amount = 0;
+            $plan->max_amount = 0;
         }
         $plan->save();
 
-        return redirect()->route('admin.plan.edit',$id)->with('success', "Plan has been updated successfully");
+        return back()->with('success', "Plan has been updated successfully");
     }
 
 

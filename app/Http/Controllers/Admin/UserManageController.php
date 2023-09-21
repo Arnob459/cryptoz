@@ -12,7 +12,7 @@ class UserManageController extends Controller
     //
     public function Index(){
         $data['page_title'] = 'All Users';
-        $data['all_users'] = User::all();
+        $data['all_users'] = User::orderBy('id','desc')->get();
 
 
         return view('admin.manage_user.all_users',$data);
@@ -20,7 +20,7 @@ class UserManageController extends Controller
 
     public function activeUsers(){
         $data['page_title'] = 'Active Users';
-        $data['active_users'] = User::where('status',1)->get();
+        $data['active_users'] = User::where('status',1)->orderBy('id','desc')->get();
 
 
         return view('admin.manage_user.active_users',$data);
@@ -28,7 +28,7 @@ class UserManageController extends Controller
 
     public function pendingUsers(){
         $data['page_title'] = 'Pending Users';
-        $data['pending_users'] = User::where('status',2)->get();
+        $data['pending_users'] = User::where('status',2)->orderBy('id','desc')->get();
 
 
         return view('admin.manage_user.pending_users',$data);
@@ -36,7 +36,7 @@ class UserManageController extends Controller
 
     public function blockedUsers(){
         $data['page_title'] = 'Blocked Users';
-        $data['blocked_users'] = User::where('status',3)->get();
+        $data['blocked_users'] = User::where('status',3)->orderBy('id','desc')->get();
 
 
         return view('admin.manage_user.blocked_users',$data);
@@ -44,7 +44,7 @@ class UserManageController extends Controller
 
     public function emailUnverifiedUsers(){
         $data['page_title'] = 'Email Unverified Users';
-        $data['email_unverified_users'] = User::where('email_verify', 0)->get();
+        $data['email_unverified_users'] = User::where('email_verify', 0)->orderBy('id','desc')->get();
 
 
         return view('admin.manage_user.email_unverified_users',$data);
@@ -52,7 +52,7 @@ class UserManageController extends Controller
 
     public function smsUnverifiedUsers(){
         $data['page_title'] = 'Sms Unverified Users';
-        $data['sms_unverified_users'] = User::where('sms_verify', 0)->get();
+        $data['sms_unverified_users'] = User::where('sms_verify', 0)->orderBy('id','desc')->get();
 
 
         return view('admin.manage_user.sms_unverified_users',$data);
@@ -96,6 +96,6 @@ class UserManageController extends Controller
 
         $user->save();
 
-        return redirect()->route('admin.user.edit',$id)->with('success', " updated successfully");
+        return back()->with('success', " updated successfully");
     }
 }

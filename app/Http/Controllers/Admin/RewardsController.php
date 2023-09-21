@@ -86,7 +86,7 @@ class RewardsController extends Controller
 
         }
 
-        return redirect()->route('admin.reward.edit',$id)->with('success', " Rewards updated successfully");
+        return back()->with('success', " Rewards updated successfully");
     }
 
 
@@ -125,14 +125,14 @@ class RewardsController extends Controller
         $level->reward_amount = $request->input('reward_amount');
         $level->save();
 
-        return redirect()->route('admin.reward.level.list',$level->reward_id)->with('success', " Rewards updated successfully");
+        return back()->with('success', " Rewards updated successfully");
 
 
     }
 
     public function levelDelete(Request $request,$id){
         $level = RewardLevel::find($id)->delete();
-        return redirect()->back()->with('success', " Rewards deleted successfully");
+        return back()->with('success', " Rewards deleted successfully");
 
     }
 
