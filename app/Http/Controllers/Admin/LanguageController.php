@@ -85,10 +85,26 @@ class LanguageController extends Controller
 
     }
 
+    public function keywordStore(Request $request){
+
+        $this->validate($request, [
+            'key_name' => 'required|string|max:255',
+            'key_value' => 'required|string|max:255',
+        ]);
+
+        $keyword = new Keyword();
+        $keyword->language_id =  $request->language_id;
+        $keyword->key_name =  $request->key_name;
+        $keyword->key_value =  $request->key_value;
+        $keyword->save();
+        return back()->with('success','Create Successfully');
+
+    }
+
     public function keywordEdit($id){
 
         $data['page_title'] = 'Update '. Language::where('id',$id)->value('name'). ' Keywords';
-        $data['title'] = 'Update '. Language::where('id',$id)->value('name'). ' Keywords';
+        $data['title'] = Language::where('id',$id)->value('name');
         $data['keywords'] = Keyword::where('language_id',$id)->get();
         return view('admin.language.keywords',$data);
 
@@ -96,11 +112,11 @@ class LanguageController extends Controller
 
     public function KeywordUpdate(Request $request){
 
-
-
+        foreach ($request->input('keywords') as $keywordId => $name) {
+            Keyword::where('id', $keywordId)->update(['key_value' => $name]);
+        }
 
         return back()->with('success', " updated successfully");
-
 
     }
 

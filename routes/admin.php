@@ -216,6 +216,8 @@ Route::name('admin.')->group(function() {
 
         Route::get('language/view/{id}', [LanguageController::class, 'keywordEdit'])->name('keyword.edit');
         Route::put('language/view/update', [LanguageController::class, 'KeywordUpdate'])->name('keyword.update');
+        Route::post('language/keyword/create', [LanguageController::class, 'keywordStore'])->name('keyword.store');
+
 
 
 

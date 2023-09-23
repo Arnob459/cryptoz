@@ -36,13 +36,13 @@ class PlanController extends Controller
             'daily_earning' => 'required|numeric|min:1',
         ]);
 
-        $plan = new Plan([
-            'name' => $request->input('name'),
-            'amount_type' => $request->input('amount_type'),
-            'earning_capasity' => $request->input('earning_capasity'),
-            'daily_earning' => $request->input('daily_earning'),
 
-        ]);
+        $plan = new Plan ;
+        $plan->name = $request->input('name');
+        $plan->amount_type = $request->input('amount_type');
+        $plan->earning_capasity = $request->input('earning_capasity');
+        $plan->daily_earning = $request->input('daily_earning');
+
 
         if ($request->input('amount_type') === 'range') {
             $plan->min_amount = $request->input('min_amount');
