@@ -30,14 +30,14 @@ class TitleSubtitleController extends Controller
                 'method_subtitle' => 'required|string|max:255',
             ]);
 
-            $main = Page::first();
-            $main->plan_title = $request->plan_title;
-            $main->plan_subtitle = $request->plan_subtitle;
-            $main->deposit_title = $request->deposit_title;
-            $main->deposit_subtitle = $request->deposit_subtitle;
-            $main->method_title = $request->method_title;
-            $main->method_subtitle = $request->method_subtitle;
-            $main->save();
+            $data = Page::first();
+            $data->plan_title = $request->plan_title;
+            $data->plan_subtitle = $request->plan_subtitle;
+            $data->deposit_title = $request->deposit_title;
+            $data->deposit_subtitle = $request->deposit_subtitle;
+            $data->method_title = $request->method_title;
+            $data->method_subtitle = $request->method_subtitle;
+            $data->save();
             return back()->with('success','Updated Successfully');
         }
 

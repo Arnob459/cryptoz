@@ -29,23 +29,23 @@ class BannerController extends Controller
                 'banner_img' => 'image|mimes:jpeg,png,jpg|max:2048',
             ]);
 
-            $main = Page::first();
-            $main->banner_title = $request->banner_title;
-            $main->banner_subtitle = $request->banner_subtitle;
+            $data = Page::first();
+            $data->banner_title = $request->banner_title;
+            $data->banner_subtitle = $request->banner_subtitle;
 
             if ($request->hasFile('banner_bg_img')) {
                 $image = $request->file('banner_bg_img');
                 $filename =  $image->getClientOriginalName();
                 Image::make($image)->resize(1920,1120)->save(public_path('assets/admin/images/banner/'.$filename));
-                $main->banner_bg_img =  $filename;
+                $data->banner_bg_img =  $filename;
             }
             if ($request->hasFile('banner_img')) {
                 $img = $request->file('banner_img');
                 $file =  $img->getClientOriginalName();
                 Image::make($img)->resize(950,720)->save(public_path('assets/admin/images/banner/'.$file));
-                $main->banner_img =  $file;
+                $data->banner_img =  $file;
             }
-            $main->save();
+            $data->save();
             return back()->with('success','Updated Successfully');
         }
 

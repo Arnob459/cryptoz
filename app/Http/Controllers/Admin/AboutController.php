@@ -28,17 +28,17 @@ class AboutController extends Controller
             'about_image' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-        $main = Page::first();
-        $main->about_title = $request->about_title;
-        $main->about_description = $request->about_description;
+        $data = Page::first();
+        $data->about_title = $request->about_title;
+        $data->about_description = $request->about_description;
 
         if ($request->hasFile('about_image')) {
             $image = $request->file('about_image');
             $filename =  $image->getClientOriginalName();
             Image::make($image)->resize(626,626)->save(public_path('assets/admin/images/about/'.$filename));
-            $main->about_image =  $filename;
+            $data->about_image =  $filename;
         }
-        $main->save();
+        $data->save();
         return back()->with('success','Updated Successfully');
     }
 }

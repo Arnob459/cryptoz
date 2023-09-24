@@ -29,10 +29,10 @@ class CounterController extends Controller
                         'counter_subtitle' => 'required|string|max:255',
                     ]);
 
-                    $main = Page::first();
-                    $main->counter_title = $request->counter_title;
-                    $main->counter_subtitle = $request->counter_subtitle;
-                    $main->save();
+                    $data = Page::first();
+                    $data->counter_title = $request->counter_title;
+                    $data->counter_subtitle = $request->counter_subtitle;
+                    $data->save();
                     return back()->with('success','Updated Successfully');
                 }
 
@@ -78,10 +78,13 @@ class CounterController extends Controller
                     $counter->save();
                     return back()->with('success','Updated Successfully');
                 }
-                public function counterDelete($id){
-                    $service = Counter::find($id);
-                    $service ->delete();
-                    return back()->with('success','counter Deleted Successfully');
-
+                public function destroy($id)
+                {
+                    $data = Counter::find($id);
+                    if (!$data) {
+                        return back()->with('error', 'Item not found');
+                    }
+                    $data->delete();
+                    return redirect()->back()->with('success', ' Deleted successfully');
                 }
 }

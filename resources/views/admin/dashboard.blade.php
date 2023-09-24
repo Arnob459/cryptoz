@@ -17,7 +17,7 @@
                                 </div>
                                 <div class="col-md-9 ">
                                     <h6 class="text-muted font-semibold">Total Users </h6>
-                                    <h6 class="font-extrabold mb-0">{{ ($all_users) }}</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $all_users }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="col-md-9 ">
                                     <h6 class="text-muted font-semibold">Active Users</h6>
-                                    <h6 class="font-extrabold mb-0">{{ ($active_users) }}</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $active_users }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="col-md-9 ">
                                     <h6 class="text-muted font-semibold">Pending Users</h6>
-                                    <h6 class="font-extrabold mb-0">{{ ($pending_users) }}</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $pending_users }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="col-md-9 ">
                                     <h6 class="text-muted font-semibold">Block Users</h6>
-                                    <h6 class="font-extrabold mb-0">{{ ($blocked_users) }}</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $blocked_users }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                                 </div>
                                 <div class="col-md-9 ">
                                     <h6 class="text-muted font-semibold">Email Verified</h6>
-                                    <h6 class="font-extrabold mb-0">{{ ($email_verified_users) }}</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $email_verified_users }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="col-md-9 ">
                                     <h6 class="text-muted font-semibold">Email Unverified</h6>
-                                    <h6 class="font-extrabold mb-0">{{ ($email_unverified_users) }}</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $email_unverified_users }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="col-md-9 ">
                                     <h6 class="text-muted font-semibold">SMS Verified</h6>
-                                    <h6 class="font-extrabold mb-0">{{ ($sms_verified_users) }}</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $sms_verified_users }}</h6>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +136,7 @@
                                 </div>
                                 <div class="col-md-9 ">
                                     <h6 class="text-muted font-semibold">SMS Unverified </h6>
-                                    <h6 class="font-extrabold mb-0">{{ ($sms_unverified_users) }}</h6>
+                                    <h6 class="font-extrabold mb-0">{{ $sms_unverified_users }}</h6>
                                 </div>
                             </div>
                         </div>

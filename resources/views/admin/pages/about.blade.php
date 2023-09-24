@@ -17,12 +17,14 @@
 
                 <div class="form-group col-md-4">
                     <label class="col-lg-6 ">About Image  <span class="required-label">*</span></label>
+                    <div class="form-group ">
+                        <img src="{{ asset('assets/admin/images/about/'.$about->about_image) }}" alt="Image Preview" id="image-preview" style="height:100px" >
+                    </div>
                     <div class="col-lg-12">
-                        <img class="img-upload-preview mb-2 " style="height:200px"   src="{{ asset('assets/admin/images/about/'.$about->about_image) }}" alt="preview">
                         <div class="input-file input-file-image">
 
-                            <input type="file" class="form-control " id="uploadbgImg" name="about_image" accept="image/*" hidden >
-                            <label for="uploadbgImg" class="btn btn-primary rounded-pill "><i class="fa fa-file-image"></i> Upload </label>
+                            <input type="file" class="form-control " id="image" name="about_image" accept="image/*" hidden >
+                            <label for="image" class="btn btn-primary rounded-pill "><i class="fa fa-file-image"></i> Upload </label>
                         </div>
                     </div>
                     <p class="text-warning mb-0">Image Will Resize 626X626.</p>
@@ -56,5 +58,26 @@
         </div>
     </div>
 </section>
+
+@push('js')
+<script src="{{ asset('assets/admin/js/jquery-3.6.0.min.js') }}"></script>
+<script>
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#image-preview').attr('src', e.target.result).show();
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $('#image').on('change', function() {
+        previewImage(this);
+    });
+</script>
+@endpush
 
 @endsection

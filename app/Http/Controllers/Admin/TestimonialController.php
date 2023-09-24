@@ -93,10 +93,13 @@ class TestimonialController extends Controller
             $testimonial->save();
             return back()->with('success','Testimonial Updated Successfully');
         }
-        public function testimonialDelete($id){
-            $testimonial = Testimonial::find($id);
-            $testimonial ->delete();
-            return back()->with('success','Testimonial Deleted Successfully');
-
+        public function destroy($id)
+        {
+            $data = Testimonial::find($id);
+            if (!$data) {
+                return back()->with('error', 'Item not found');
+            }
+            $data->delete();
+            return redirect()->back()->with('success', ' Deleted successfully');
         }
 }

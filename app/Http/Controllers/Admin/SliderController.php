@@ -74,11 +74,14 @@ class SliderController extends Controller
             $slider->save();
             return back()->with('success','slider Updated Successfully');
         }
-        public function sliderDelete($id){
-            $slider = Slider::find($id);
-            $slider ->delete();
-            return back()->with('success','slider Deleted Successfully');
-
+        public function destroy($id)
+        {
+            $data = Slider::find($id);
+            if (!$data) {
+                return back()->with('error', 'Item not found');
+            }
+            $data->delete();
+            return redirect()->back()->with('success', ' Deleted successfully');
         }
 
 }

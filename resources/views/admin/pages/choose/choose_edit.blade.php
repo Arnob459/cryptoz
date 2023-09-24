@@ -19,24 +19,24 @@
                         <label for="iconSelector">Icons </label>
                         <div class="col-sm-10">
                             <select id="iconSelector" class="form-select" name="icon" required>
-                            <option value="fas fa-hand-holding-usd"@if ($choose->icon == 'fas fa-hand-holding-usd') selected @endif>Hand-holding-usd</option>
-                            <option value="fas fa-coins"@if ($choose->icon == 'fas fa-coins') selected @endif>Coins</option>
-                            <option value="fas fa-chart-bar"@if ($choose->icon == 'fas fa-chart-bar') selected @endif>Chart-bar</option>
-                            <option value="fas fa-money-bill"@if ($choose->icon == 'fas fa-money-bill') selected @endif>Money-bill</option>
-                            <option value="fas fa-money-check-alt"@if ($choose->icon == 'fas fa-money-check-alt') selected @endif>wallet</option>
-                            <option value="fas fa-ellipsis-v"@if ($choose->icon == 'fas fa-ellipsis-v') selected @endif >ellipsis-v</option>
-                            <option value="fas fa-ellipsis-h"@if ($choose->icon == 'fas fa-ellipsis-h') selected @endif>ellipsis-h</option>
-                            <option value="fas fa-bars"@if ($choose->icon == 'fas fa-bars') selected @endif>Bars</option>
-                            <option value="far fa-comment"@if ($choose->icon == 'far fa-comment') selected @endif>Comment</option>
-                            <option value="far fa-compass"@if ($choose->icon == 'far fa-compass') selected @endif>Compass</option>
-                            <option value="fas fa-dollar-sign"@if ($choose->icon == 'fas fa-dollar-sign') selected @endif>Doller</option>
-                            <option value="fas fa-heart"@if ($choose->icon == 'fas fa-hear') selected @endif>Heart</option>
-                            <option value="fas fa-walking"@if ($choose->icon == 'fas fa-walking') selected @endif>Walking</option>
-                            <option value="fas fa-users"@if ($choose->icon == 'fas fa-users') selected @endif>Users</option>
-                            <option value="fab fa-twitter"@if ($choose->icon == 'fas fa-twitter') selected @endif>Twitter</option>
-                            <option value="fab fa-linkedin"@if ($choose->icon == 'fas fa-linkedin') selected @endif>Linkedin</option>
-                            <option value="fab fa-youtube"@if ($choose->icon == 'fas fa-youtube') selected @endif>Youtube</option>
-                            <option value="fab fa-instagram"@if ($choose->icon == 'fas fa-instagram') selected @endif>Instagram</option>
+                                <option value="fas fa-coins"{{ $choose->icon == 'fas fa-coins' ? 'selected':'' }}>Coins</option>
+                                <option value="fas fa-hand-holding-usd"{{ $choose->icon == 'fas fa-hand-holding-usd' ? 'selected':'' }}>Hand-holding-usd</option>
+                                <option value="fas fa-chart-bar"{{ $choose->icon == 'fas fa-chart-bar' ? 'selected':'' }}>Chart-bar</option>
+                                <option value="fas fa-money-bill"{{ $choose->icon == 'fas fa-money-bill' ? 'selected':'' }}>Money-bill</option>
+                                <option value="fas fa-money-check-alt"{{ $choose->icon == 'fas fa-money-check-alt' ? 'selected':'' }}>wallet</option>
+                                <option value="fas fa-ellipsis-v"{{ $choose->icon == 'fas fa-ellipsis-v' ? 'selected':'' }} >ellipsis-v</option>
+                                <option value="fas fa-ellipsis-h"{{ $choose->icon == 'fas fa-ellipsis-h' ? 'selected':'' }}>ellipsis-h</option>
+                                <option value="fas fa-bars"{{ $choose->icon == 'fas fa-bars' ? 'selected':'' }}>Bars</option>
+                                <option value="far fa-comment"{{ $choose->icon == 'far fa-comment' ? 'selected':'' }}>Comment</option>
+                                <option value="far fa-compass"{{ $choose->icon == 'far fa-compass' ? 'selected':'' }}>Compass</option>
+                                <option value="fas fa-dollar-sign"{{ $choose->icon == 'fas fa-dollar-sign' ? 'selected':'' }}>Doller</option>
+                                <option value="fas fa-heart"{{ $choose->icon == 'fas fa-heart' ? 'selected':'' }}>Heart</option>
+                                <option value="fas fa-walking"{{ $choose->icon == 'fas fa-walking' ? 'selected':'' }}>Walking</option>
+                                <option value="fas fa-users"{{ $choose->icon == 'fas fa-users' ? 'selected':'' }}>Users</option>
+                                <option value="fab fa-twitter"{{ $choose->icon == 'fab fa-twitter' ? 'selected':'' }}>Twitter</option>
+                                <option value="fab fa-linkedin"{{ $choose->icon == 'fab fa-linkedin' ? 'selected':'' }}>Linkedin</option>
+                                <option value="fab fa-youtube"{{ $choose->icon == 'fab fa-youtube' ? 'selected':'' }}>Youtube</option>
+                                <option value="fab fa-instagram"{{ $choose->icon == 'fab fa-instagram' ? 'selected':'' }}>Instagram</option>
                             </select>
                         </div>
                     </div>

@@ -26,10 +26,10 @@ class TermsController extends Controller
                 'terms_description' => 'required|string|max:5000',
             ]);
 
-            $main = Page::first();
-            $main->terms_title = $request->terms_title;
-            $main->terms_description = $request->terms_description;
-            $main->save();
+            $data = Page::first();
+            $data->terms_title = $request->terms_title;
+            $data->terms_description = $request->terms_description;
+            $data->save();
             return back()->with('success','Updated Successfully');
         }
 }

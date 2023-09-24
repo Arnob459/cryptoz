@@ -30,10 +30,10 @@ class ServiceController extends Controller
               'service_subtitle' => 'required|string|max:255',
           ]);
 
-          $main = Page::first();
-          $main->service_title = $request->service_title;
-          $main->service_subtitle = $request->service_subtitle;
-          $main->save();
+          $data = Page::first();
+          $data->service_title = $request->service_title;
+          $data->service_subtitle = $request->service_subtitle;
+          $data->save();
           return back()->with('success','Updated Successfully');
       }
 
@@ -91,10 +91,13 @@ class ServiceController extends Controller
           $service->save();
           return back()->with('success','service Updated Successfully');
       }
-      public function servicesDelete($id){
-          $service = Service::find($id);
-          $service ->delete();
-          return back()->with('success','service Deleted Successfully');
-
+      public function destroy($id)
+      {
+          $data = Service::find($id);
+          if (!$data) {
+              return back()->with('error', 'Item not found');
+          }
+          $data->delete();
+          return redirect()->back()->with('success', ' Deleted successfully');
       }
 }

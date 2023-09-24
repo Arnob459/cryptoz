@@ -28,10 +28,10 @@ class BlogController extends Controller
                 'blog_subtitle' => 'required|string|max:255',
             ]);
 
-            $main = Page::first();
-            $main->blog_title = $request->blog_title;
-            $main->blog_subtitle = $request->blog_subtitle;
-            $main->save();
+            $data = Page::first();
+            $data->blog_title = $request->blog_title;
+            $data->blog_subtitle = $request->blog_subtitle;
+            $data->save();
             return back()->with('success','Updated Successfully');
         }
 
@@ -91,10 +91,13 @@ class BlogController extends Controller
             $blog->save();
             return back()->with('success','Blog Updated Successfully');
         }
-        public function blogDelete($id){
-            $blog = Blog::find($id);
-            $blog ->delete();
-            return back()->with('success','Blog Deleted Successfully');
-
+        public function destroy($id)
+        {
+            $data = Blog::find($id);
+            if (!$data) {
+                return back()->with('error', 'Item not found');
+            }
+            $data->delete();
+            return redirect()->back()->with('success', ' Deleted successfully');
         }
 }

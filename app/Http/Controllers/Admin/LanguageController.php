@@ -79,10 +79,14 @@ class LanguageController extends Controller
 
     }
 
-    public function languageDelete(Request $request,$id){
-        $language = Language::find($id)->delete();
-        return back()->with('success', " Deleted successfully");
-
+    public function destroy($id)
+    {
+        $data = Language::find($id);
+        if (!$data) {
+            return back()->with('error', 'Item not found');
+        }
+        $data->delete();
+        return redirect()->back()->with('success', ' Deleted successfully');
     }
 
     public function keywordStore(Request $request){

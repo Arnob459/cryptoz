@@ -15,11 +15,14 @@
                     <div class="form-group col-md-6">
                         <div class="form-group form-show-validation">
                             <label class="col-lg-4 col-md-3 col-sm-4 mt-sm-2">Upload Logo <span class="required-label">*</span></label>
+                            <div class="form-group ">
+                                <img src="{{ asset('assets/admin/images/logo/'.$settings->logo) }}" alt="Image Preview" id="image-preview" style="height:100px" >
+                            </div>
                             <div class="col-lg-12">
                                 <div class="input-file input-file-image">
-                                    <img class="img-upload-preview mb-2 " style="height:100px"   src="{{ asset('assets/admin/images/logo/'.$settings->logo) }}" alt="preview">
-                                    <input type="file" class="form-control form-control-file" id="uploadImg" name="logo" accept="image/*" hidden >
-                                    <label for="uploadImg" class="btn btn-primary rounded-pill btn-lg"><i class="fa fa-file-image"></i> Upload a Logo</label>
+                                    {{-- <img class="img-upload-preview mb-2 " style="height:100px"   src="{{ asset('assets/admin/images/logo/'.$settings->logo) }}" alt="preview"> --}}
+                                    <input type="file" class="form-control form-control-file" id="image" name="logo" accept="image/*" hidden >
+                                    <label for="image" class="btn btn-primary rounded-pill btn-lg"><i class="fa fa-file-image"></i> Upload a Logo</label>
                                 </div>
                             </div>
                             <p class="text-warning mb-0 mt-2">Upload 160pxX35px Logo for best quality.</p>
@@ -29,12 +32,15 @@
                     <div class="form-group col-md-6">
                         <div class="form-group form-show-validation">
                             <label class="col-lg-4 col-md-3 col-sm-4 mt-sm-2" >Upload Favicon <span class="required-label">*</span></label>
+                            <div class="form-group ">
+                                <img src="{{ asset('assets/admin/images/logo/'.$settings->favicon) }}" alt="Image Preview" id="image-preview2" style="height:100px" >
+                            </div>
                             <div class="col-lg-12">
-                                <img class="img-upload-preview mb-2 " style="height:100px" src="{{ asset('assets/admin/images/logo/'.$settings->favicon) }}" alt="preview">
+                                {{-- <img class="img-upload-preview mb-2 " style="height:100px" src="{{ asset('assets/admin/images/logo/'.$settings->favicon) }}" alt="preview"> --}}
 
                                 <div class="input-file input-file-image">
-                                    <input type="file" class="form-control form-control-file" id="uploadImgFavicon" name="favicon" accept="image/*" hidden >
-                                    <label for="uploadImgFavicon" class="btn btn-primary rounded-pill btn-lg"><i class="fa fa-file-image"></i> Upload a Favicon</label>
+                                    <input type="file" class="form-control form-control-file" id="imagefav" name="favicon" accept="image/*" hidden >
+                                    <label for="imagefav" class="btn btn-primary rounded-pill btn-lg"><i class="fa fa-file-image"></i> Upload a Favicon</label>
                                 </div>
                             </div>
                             <p class="text-warning mb-0 mt-2">Upload 40pxX40px Favicon for best quality.</p>
@@ -55,5 +61,49 @@
         </div>
     </div>
 </section>
+
+@push('js')
+<script src="{{ asset('assets/admin/js/jquery-3.6.0.min.js') }}"></script>
+<script>
+    function previewImage(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#image-preview').attr('src', e.target.result).show();
+
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $('#image').on('change', function() {
+        previewImage(this);
+    });
+
+</script>
+
+<script>
+    function previewImage2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#image-preview2').attr('src', e.target.result).show();
+
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $('#imagefav').on('change', function() {
+        previewImage2(this);
+    });
+
+</script>
+
+@endpush
 
 @endsection

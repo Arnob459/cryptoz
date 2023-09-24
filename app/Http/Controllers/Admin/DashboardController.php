@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Support\Facades\Validator;
@@ -32,16 +32,17 @@ class DashboardController extends Controller
     public function Profile() {
 
         $data['page_title'] = 'Profile';
-        $data['user'] =   auth('admin')->user();
+        $data['admin'] =   Auth::guard('admin')->user();
         return view('admin.profile.profile_edit', $data);
     }
 
 
     public function profileUpdate(Request $request) {
 
-        $admin = auth('admin')->user();
-        $id=$admin->id;
+        $admin = Auth::guard('admin')->user();
 
+
+        $id=$admin->id;
         $this->validate($request, [
             'name' => 'required|string|max:50',
             'email' => 'required|string|email|max:255|unique:admins,email,' . $id,
@@ -50,20 +51,19 @@ class DashboardController extends Controller
             'avatar' => 'image|mimes:jpeg,png,jpg|max:1048',
         ]);
 
-        $user = auth('admin')->user();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->phone = $request->phone;
-        $user->username = $request->username;
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        $admin->phone = $request->phone;
+        $admin->username = $request->username;
 
         if ($request->hasFile('avatar')) {
             $avatar = $request->file('avatar');
             $filename = $avatar->getClientOriginalName();
             $avatar->move(public_path('assets/admin/images/avatar/'), $filename);
-            $user->avatar =  $filename;
+            $admin->avatar =  $filename;
         }
 
-        $user->save();
+        $admin->save();
 
         return back()->with('success','Admin Information Updated Successfully');
     }
@@ -71,17 +71,16 @@ class DashboardController extends Controller
     public function ChangePassword() {
 
         $data['page_title'] = 'Change Password';
-        $data['user'] = auth('admin')->user();
         return view('admin.profile.change_password', $data);
     }
 
 
     public function UpdatePassword(Request $request) {
 
-        $users = auth('admin')->user();
-        $old_pass = $users->password;
+        $admin = Auth::guard('admin')->user();
 
-        if (password_verify($request->input('oldpassword'), $old_pass)) {
+
+        if (password_verify($request->input('oldpassword'), $admin->password )) {
 
             $request->validate([
                 'newpassword' => ['required', 'string','min:5'],
@@ -90,17 +89,17 @@ class DashboardController extends Controller
 
             if ($request->newpassword == $request->confirmpassword)
              {
-                $users->password = Hash::make($request->newpassword);
+                $admin->password = Hash::make($request->newpassword);
             }
 
             else{
              return back()->with('error','New password and Confirm Password doesnot match');
             }
-            $users->save();
+            $admin->save();
             return back()->with('success','Password changed Successfully');
         }
             else{
-                return back()->with('error','Old password doesnot match');
+                return back()->with('error',' Incorrect Old password');
             }
 
     }

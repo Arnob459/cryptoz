@@ -26,10 +26,10 @@ class FaqController extends Controller
                'faq_subtitle' => 'required|string|max:255',
            ]);
 
-           $main = Page::first();
-           $main->faq_title = $request->faq_title;
-           $main->faq_subtitle = $request->faq_subtitle;
-           $main->save();
+           $data = Page::first();
+           $data->faq_title = $request->faq_title;
+           $data->faq_subtitle = $request->faq_subtitle;
+           $data->save();
            return back()->with('success','Updated Successfully');
        }
 
@@ -70,10 +70,22 @@ class FaqController extends Controller
            $faq->save();
            return back()->with('success','Updated Successfully');
        }
-       public function faqDelete($id){
-           $faq = Faq::find($id);
+       public function faqDelete(Request $request){
+        dd($request->faq_delete_id);
+           $faq = Faq::find($request->faq_delete_id);
            $faq ->delete();
            return back()->with('success',' FAQ Deleted Successfully');
 
        }
+
+        public function destroy($id)
+        {
+            $data = Faq::find($id);
+            if (!$data) {
+                return back()->with('error', 'Item not found');
+            }
+            $data->delete();
+            return redirect()->back()->with('success', ' Deleted successfully');
+        }
+
 }

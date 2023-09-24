@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <section id="basic-vertical-layouts ">
+    <section id="basic-vertical-layouts " class="d-flex justify-content-center">
 
 
             <div class="col-8 ">

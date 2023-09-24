@@ -130,10 +130,14 @@ class RewardsController extends Controller
 
     }
 
-    public function levelDelete(Request $request,$id){
-        $level = RewardLevel::find($id)->delete();
-        return back()->with('success', " Rewards deleted successfully");
-
+    public function destroy($id)
+    {
+        $data = RewardLevel::find($id);
+        if (!$data) {
+            return back()->with('error', 'Item not found');
+        }
+        $data->delete();
+        return redirect()->back()->with('success', ' Deleted successfully');
     }
 
 }

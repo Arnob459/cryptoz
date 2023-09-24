@@ -19,19 +19,24 @@
                         <label for="iconSelector">Icons </label>
                         <div class="col-sm-10">
                             <select id="iconSelector" class="form-select" name="icon" required>
-                            <option value="fas fa-ellipsis-v"@if ($work->icon == 'fas fa-ellipsis-v') selected @endif >ellipsis-v</option>
-                            <option value="fas fa-ellipsis-h"@if ($work->icon == 'fas fa-ellipsis-h') selected @endif>ellipsis-h</option>
-                            <option value="fas fa-bars"@if ($work->icon == 'fas fa-bars') selected @endif>Bars</option>
-                            <option value="far fa-comment"@if ($work->icon == 'far fa-comment') selected @endif>Comment</option>
-                            <option value="far fa-compass"@if ($work->icon == 'far fa-compass') selected @endif>Compass</option>
-                            <option value="fas fa-dollar-sign"@if ($work->icon == 'fas fa-dollar-sign') selected @endif>Doller</option>
-                            <option value="fas fa-heart"@if ($work->icon == 'fas fa-hear') selected @endif>Heart</option>
-                            <option value="fas fa-walking"@if ($work->icon == 'fas fa-walking') selected @endif>Walking</option>
-                            <option value="fas fa-users"@if ($work->icon == 'fas fa-users') selected @endif>Users</option>
-                            <option value="fab fa-twitter"@if ($work->icon == 'fas fa-twitter') selected @endif>Twitter</option>
-                            <option value="fab fa-linkedin"@if ($work->icon == 'fas fa-linkedin') selected @endif>Linkedin</option>
-                            <option value="fab fa-youtube"@if ($work->icon == 'fas fa-youtube') selected @endif>Youtube</option>
-                            <option value="fab fa-instagram"@if ($work->icon == 'fas fa-instagram') selected @endif>Instagram</option>
+                                <option value="fas fa-coins"{{ $work->icon == 'fas fa-coins' ? 'selected':'' }}>Coins</option>
+                                <option value="fas fa-hand-holding-usd"{{ $work->icon == 'fas fa-hand-holding-usd' ? 'selected':'' }}>Hand-holding-usd</option>
+                                <option value="fas fa-chart-bar"{{ $work->icon == 'fas fa-chart-bar' ? 'selected':'' }}>Chart-bar</option>
+                                <option value="fas fa-money-bill"{{ $work->icon == 'fas fa-money-bill' ? 'selected':'' }}>Money-bill</option>
+                                <option value="fas fa-money-check-alt"{{ $work->icon == 'fas fa-money-check-alt' ? 'selected':'' }}>wallet</option>
+                                <option value="fas fa-ellipsis-v"{{ $work->icon == 'fas fa-ellipsis-v' ? 'selected':'' }} >ellipsis-v</option>
+                                <option value="fas fa-ellipsis-h"{{ $work->icon == 'fas fa-ellipsis-h' ? 'selected':'' }}>ellipsis-h</option>
+                                <option value="fas fa-bars"{{ $work->icon == 'fas fa-bars' ? 'selected':'' }}>Bars</option>
+                                <option value="far fa-comment"{{ $work->icon == 'far fa-comment' ? 'selected':'' }}>Comment</option>
+                                <option value="far fa-compass"{{ $work->icon == 'far fa-compass' ? 'selected':'' }}>Compass</option>
+                                <option value="fas fa-dollar-sign"{{ $work->icon == 'fas fa-dollar-sign' ? 'selected':'' }}>Doller</option>
+                                <option value="fas fa-heart"{{ $work->icon == 'fas fa-heart' ? 'selected':'' }}>Heart</option>
+                                <option value="fas fa-walking"{{ $work->icon == 'fas fa-walking' ? 'selected':'' }}>Walking</option>
+                                <option value="fas fa-users"{{ $work->icon == 'fas fa-users' ? 'selected':'' }}>Users</option>
+                                <option value="fab fa-twitter"{{ $work->icon == 'fab fa-twitter' ? 'selected':'' }}>Twitter</option>
+                                <option value="fab fa-linkedin"{{ $work->icon == 'fab fa-linkedin' ? 'selected':'' }}>Linkedin</option>
+                                <option value="fab fa-youtube"{{ $work->icon == 'fab fa-youtube' ? 'selected':'' }}>Youtube</option>
+                                <option value="fab fa-instagram"{{ $work->icon == 'fab fa-instagram' ? 'selected':'' }}>Instagram</option>
                             </select>
                         </div>
                     </div>

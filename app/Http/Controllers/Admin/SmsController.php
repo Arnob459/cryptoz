@@ -28,9 +28,9 @@ class SmsController extends Controller
 
         ]);
 
-        $info = Settings::first();
-        $info->sms_api = $request->sms_api;
-        $info->save();
+        $data = Settings::first();
+        $data->sms_api = $request->sms_api;
+        $data->save();
         return redirect()->route('admin.sms.api')->with('success', "SMS Api updated successfully");
     }
 

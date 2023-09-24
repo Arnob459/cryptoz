@@ -54,7 +54,8 @@ Route::name('admin.')->group(function() {
         Route::get('reward/{id}', [RewardsController::class, 'levelList'])->name('reward.level.list');
         Route::get('reward-edit/{id}', [RewardsController::class, 'levelEdit'])->name('reward.level.edit');
         Route::put('reward-update', [RewardsController::class, 'levelUpdate'])->name('reward.level.update');
-        Route::get('reward/delete/{id}', [RewardsController::class, 'levelDelete'])->name('reward.level.delete');
+        Route::delete('/reward/destroy/{id}', [RewardsController::class, 'destroy'])->name('reward.destroy');
+
 
         //Manage User
         Route::get('/allusers', [UserManageController::class, 'Index'])->name('allusers');
@@ -97,7 +98,8 @@ Route::name('admin.')->group(function() {
         Route::post('settings/social/create', [BasicSettingsController::class, 'socialStore'])->name('social.store');
         Route::get('settings/social/edit/{id}', [BasicSettingsController::class, 'socialEdit'])->name('social.edit');
         Route::post('settings/social/edit/{id}', [BasicSettingsController::class, 'socialUpdate'])->name('social.update');
-        Route::get('settings/social/delete/{id}', [BasicSettingsController::class, 'socialDelete'])->name('social.delete');
+        Route::delete('/social/destroy/{id}', [BasicSettingsController::class, 'destroy'])->name('social.destroy');
+
 
         //Footer
         Route::get('settings/footer', [BasicSettingsController::class, 'Footer'])->name('footer');
@@ -117,7 +119,8 @@ Route::name('admin.')->group(function() {
         Route::post('home/slider/create', [SliderController::class, 'sliderStore'])->name('slider.store');
         Route::get('home/slider/edit/{id}', [SliderController::class, 'sliderEdit'])->name('slider.edit');
         Route::post('home/slider/edit/{id}', [SliderController::class, 'sliderUpdate'])->name('slider.update');
-        Route::get('home/slider/delete/{id}', [SliderController::class, 'sliderDelete'])->name('slider.delete');
+        Route::delete('/slider/destroy/{id}', [SliderController::class, 'destroy'])->name('slider.destroy');
+
 
         //Services
         Route::get('home/services', [ServiceController::class, 'Service'])->name('services');
@@ -127,7 +130,8 @@ Route::name('admin.')->group(function() {
         Route::post('home/services/create', [ServiceController::class, 'servicesStore'])->name('services.store');
         Route::get('home/services/edit/{id}', [ServiceController::class, 'servicesEdit'])->name('services.edit');
         Route::post('home/services/edit/{id}', [ServiceController::class, 'servicesUpdate'])->name('services.update');
-        Route::get('home/services/delete/{id}', [ServiceController::class, 'servicesDelete'])->name('services.delete');
+        Route::delete('/services/destroy/{id}', [ServiceController::class, 'destroy'])->name('services.destroy');
+
 
         //About
         Route::get('home/about', [AboutController::class, 'About'])->name('about');
@@ -141,7 +145,8 @@ Route::name('admin.')->group(function() {
         Route::post('home/counter/create', [CounterController::class, 'counterStore'])->name('counter.store');
         Route::get('home/counter/edit/{id}', [CounterController::class, 'counterEdit'])->name('counter.edit');
         Route::post('home/counter/edit/{id}', [CounterController::class, 'counterUpdate'])->name('counter.update');
-        Route::get('home/counter/delete/{id}', [CounterController::class, 'counterDelete'])->name('counter.delete');
+        Route::delete('/counter/destroy/{id}', [CounterController::class, 'destroy'])->name('counter.destroy');
+
 
         //Work
         Route::get('home/work', [WorkController::class, 'Work'])->name('work');
@@ -151,7 +156,8 @@ Route::name('admin.')->group(function() {
         Route::post('home/work/create', [WorkController::class, 'workStore'])->name('work.store');
         Route::get('home/work/edit/{id}', [WorkController::class, 'workEdit'])->name('work.edit');
         Route::post('home/work/edit/{id}', [WorkController::class, 'workUpdate'])->name('work.update');
-        Route::get('home/work/delete/{id}', [WorkController::class, 'workDelete'])->name('work.delete');
+        Route::delete('/work/destroy/{id}', [WorkController::class, 'destroy'])->name('work.destroy');
+
 
         //Faq
         Route::get('home/faq', [FaqController::class, 'Faq'])->name('faq');
@@ -161,7 +167,7 @@ Route::name('admin.')->group(function() {
         Route::post('home/faq/create', [FaqController::class, 'faqStore'])->name('faq.store');
         Route::get('home/faq/edit/{id}', [FaqController::class, 'faqEdit'])->name('faq.edit');
         Route::post('home/faq/edit/{id}', [FaqController::class, 'faqUpdate'])->name('faq.update');
-        Route::get('home/faq/delete/{id}', [FaqController::class, 'faqDelete'])->name('faq.delete');
+        Route::delete('/faq/destroy/{id}', [FaqController::class, 'destroy'])->name('faq.destroy');
 
         //Why Choose us
         Route::get('home/choose', [ChooseUsController::class, 'Choose'])->name('choose');
@@ -171,7 +177,8 @@ Route::name('admin.')->group(function() {
         Route::post('home/choose/create', [ChooseUsController::class, 'chooseStore'])->name('choose.store');
         Route::get('home/choose/edit/{id}', [ChooseUsController::class, 'chooseEdit'])->name('choose.edit');
         Route::post('home/choose/edit/{id}', [ChooseUsController::class, 'chooseUpdate'])->name('choose.update');
-        Route::get('home/choose/delete/{id}', [ChooseUsController::class, 'chooseDelete'])->name('choose.delete');
+        Route::delete('/choose/destroy/{id}', [ChooseUsController::class, 'destroy'])->name('choose.destroy');
+
 
         //Testimonial
         Route::get('home/testimonial', [TestimonialController::class, 'Testimonial'])->name('testimonial');
@@ -181,7 +188,8 @@ Route::name('admin.')->group(function() {
         Route::post('home/testimonial/create', [TestimonialController::class, 'testimonialStore'])->name('testimonial.store');
         Route::get('home/testimonial/edit/{id}', [TestimonialController::class, 'testimonialEdit'])->name('testimonial.edit');
         Route::post('home/testimonial/edit/{id}', [TestimonialController::class, 'testimonialUpdate'])->name('testimonial.update');
-        Route::get('home/testimonial/delete/{id}', [TestimonialController::class, 'testimonialDelete'])->name('testimonial.delete');
+        Route::delete('/testimonial/destroy/{id}', [TestimonialController::class, 'destroy'])->name('testimonial.destroy');
+
 
         //Blog
         Route::get('home/blog', [BlogController::class, 'Blog'])->name('blog');
@@ -191,7 +199,7 @@ Route::name('admin.')->group(function() {
         Route::post('home/blog/create', [BlogController::class, 'blogStore'])->name('blog.store');
         Route::get('home/blog/edit/{id}', [BlogController::class, 'blogEdit'])->name('blog.edit');
         Route::post('home/blog/edit/{id}', [BlogController::class, 'blogUpdate'])->name('blog.update');
-        Route::get('home/blog/delete/{id}', [BlogController::class, 'blogDelete'])->name('blog.delete');
+        Route::delete('/blog/destroy/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
 
         //Title and Subtitle
         Route::get('home/title-subtitle', [TitleSubtitleController::class, 'titleSubtitle'])->name('titleSubtitle');
@@ -212,7 +220,8 @@ Route::name('admin.')->group(function() {
         Route::post('language/create', [LanguageController::class, 'languageStore'])->name('language.store');
         Route::get('language/edit/{id}', [LanguageController::class, 'languageEdit'])->name('language.edit');
         Route::put('language/update', [LanguageController::class, 'languageUpdate'])->name('language.update');
-        Route::get('language/delete/{id}', [LanguageController::class, 'languageDelete'])->name('language.delete');
+        Route::delete('/language/destroy/{id}', [LanguageController::class, 'destroy'])->name('language.destroy');
+
 
         Route::get('language/view/{id}', [LanguageController::class, 'keywordEdit'])->name('keyword.edit');
         Route::put('language/view/update', [LanguageController::class, 'KeywordUpdate'])->name('keyword.update');

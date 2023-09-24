@@ -13,10 +13,10 @@
                                     <div class="row">
                                         <div class="col-12 ">
                                             <div class="avatar avatar-xl me-3 mb-3 ">
-                                            <img src="{{ asset('assets/admin/images/avatar/'.$user->avatar) }}" alt="" srcset="">
+                                            <img src="{{ asset('assets/admin/images/avatar/'.$admin->avatar) }}" alt="" srcset="">
                                             </div>
 
-                                            <h3 class="card-title text-nowrap mb-1"> {{ $user->username }} </h3>
+                                            <h3 class="card-title text-nowrap mb-1"> {{ $admin->username }} </h3>
                                         </div>
                                     </div>
                                 </div>
@@ -37,21 +37,21 @@
                                             <div class="form-group">
                                                 <label for="first-name-vertical"> Name</label>
                                                 <input type="text" id="first-name-vertical" class="form-control"
-                                                name="name" value="{{ $user->name }}" required>
+                                                name="name" value="{{ $admin->name }}" required>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="email-id-vertical">Username</label>
                                                 <input type="text" id="email-id-vertical" class="form-control"
-                                                name="username" value="{{ $user->username }}" required>
+                                                name="username" value="{{ $admin->username }}" required>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="contact-info-vertical">Mobile</label>
                                                 <input type="number" id="contact-info-vertical" class="form-control"
-                                                name="phone" value="{{ $user->phone }}" required>
+                                                name="phone" value="{{ $admin->phone }}" required>
                                             </div>
                                         </div>
 
@@ -64,7 +64,7 @@
                                             <div class="form-group">
                                                 <label for="email-id-vertical">Email</label>
                                                 <input type="email" id="email-id-vertical" class="form-control"
-                                                name="email" value="{{ $user->email }}" required >
+                                                name="email" value="{{ $admin->email }}" required >
                                             </div>
                                         </div>
 

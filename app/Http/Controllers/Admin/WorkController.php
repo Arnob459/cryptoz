@@ -27,10 +27,10 @@ class WorkController extends Controller
               'work_subtitle' => 'required|string|max:255',
           ]);
 
-          $main = Page::first();
-          $main->work_title = $request->work_title;
-          $main->work_subtitle = $request->work_subtitle;
-          $main->save();
+          $data = Page::first();
+          $data->work_title = $request->work_title;
+          $data->work_subtitle = $request->work_subtitle;
+          $data->save();
           return back()->with('success','Updated Successfully');
       }
 
@@ -75,11 +75,14 @@ class WorkController extends Controller
           $work->save();
           return back()->with('success','Updated Successfully');
       }
-      public function workDelete($id){
-          $work = Work::find($id);
-          $work ->delete();
-          return back()->with('success','Deleted Successfully');
-
+      public function destroy($id)
+      {
+          $data = Work::find($id);
+          if (!$data) {
+              return back()->with('error', 'Item not found');
+          }
+          $data->delete();
+          return redirect()->back()->with('success', ' Deleted successfully');
       }
 
 }

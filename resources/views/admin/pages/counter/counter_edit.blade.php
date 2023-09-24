@@ -19,19 +19,19 @@
                         <label for="iconSelector">Icons </label>
                         <div class="col-sm-10">
                             <select id="iconSelector" class="form-select" name="icon" required>
-                            <option value="fas fa-ellipsis-v"@if ($counter->icon == 'fas fa-ellipsis-v') selected @endif >ellipsis-v</option>
-                            <option value="fas fa-ellipsis-h"@if ($counter->icon == 'fas fa-ellipsis-h') selected @endif>ellipsis-h</option>
-                            <option value="fas fa-bars"@if ($counter->icon == 'fas fa-bars') selected @endif>Bars</option>
-                            <option value="far fa-comment"@if ($counter->icon == 'far fa-comment') selected @endif>Comment</option>
-                            <option value="far fa-compass"@if ($counter->icon == 'far fa-compass') selected @endif>Compass</option>
-                            <option value="fas fa-dollar-sign"@if ($counter->icon == 'fas fa-dollar-sign') selected @endif>Doller</option>
-                            <option value="fas fa-heart"@if ($counter->icon == 'fas fa-hear') selected @endif>Heart</option>
-                            <option value="fas fa-walking"@if ($counter->icon == 'fas fa-walking') selected @endif>Walking</option>
-                            <option value="fas fa-users"@if ($counter->icon == 'fas fa-users') selected @endif>Users</option>
-                            <option value="fab fa-twitter"@if ($counter->icon == 'fas fa-twitter') selected @endif>Twitter</option>
-                            <option value="fab fa-linkedin"@if ($counter->icon == 'fas fa-linkedin') selected @endif>Linkedin</option>
-                            <option value="fab fa-youtube"@if ($counter->icon == 'fas fa-youtube') selected @endif>Youtube</option>
-                            <option value="fab fa-instagram"@if ($counter->icon == 'fas fa-instagram') selected @endif>Instagram</option>
+                            <option value="fas fa-ellipsis-v"{{ $counter->icon == 'fas fa-ellipsis-v' ? 'selected':'' }} >ellipsis-v</option>
+                            <option value="fas fa-ellipsis-h"{{ $counter->icon == 'fas fa-ellipsis-h' ? 'selected':'' }}>ellipsis-h</option>
+                            <option value="fas fa-bars"{{ $counter->icon == 'fas fa-bars' ? 'selected':'' }}>Bars</option>
+                            <option value="far fa-comment"{{ $counter->icon == 'far fa-comment' ? 'selected':'' }}>Comment</option>
+                            <option value="far fa-compass"{{ $counter->icon == 'far fa-compass' ? 'selected':'' }}>Compass</option>
+                            <option value="fas fa-dollar-sign"{{ $counter->icon == 'fas fa-dollar-sign' ? 'selected':'' }}>Doller</option>
+                            <option value="fas fa-heart"{{ $counter->icon == 'fas fa-heart' ? 'selected':'' }}>Heart</option>
+                            <option value="fas fa-walking"{{ $counter->icon == 'fas fa-walking' ? 'selected':'' }}>Walking</option>
+                            <option value="fas fa-users"{{ $counter->icon == 'fas fa-users' ? 'selected':'' }}>Users</option>
+                            <option value="fab fa-twitter"{{ $counter->icon == 'fab fa-twitter' ? 'selected':'' }}>Twitter</option>
+                            <option value="fab fa-linkedin"{{ $counter->icon == 'fab fa-linkedin' ? 'selected':'' }}>Linkedin</option>
+                            <option value="fab fa-youtube"{{ $counter->icon == 'fab fa-youtube' ? 'selected':'' }}>Youtube</option>
+                            <option value="fab fa-instagram"{{ $counter->icon == 'fab fa-instagram' ? 'selected':'' }}>Instagram</option>
                             </select>
                         </div>
                     </div>

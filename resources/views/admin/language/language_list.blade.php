@@ -25,10 +25,16 @@ data-bs-target="#createModal" class="btn btn-warning ">Add New Language</button>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                    $counter = 0;
+                                    @endphp
                                     @foreach ($languages as $language)
+                                    @php
+                                    $counter++;
+                                    @endphp
 
                                     <tr>
-                                        <td>{{ $language->id }}</td>
+                                        <td>{{ $counter }}</td>
                                         <td>{{ $language->name }}</td>
                                         <td style="font-size: 22px;">{{ $language->code }}</td>
                                         <td>
@@ -44,12 +50,37 @@ data-bs-target="#createModal" class="btn btn-warning ">Add New Language</button>
                                             @else
                                             <a href="{{ route('admin.keyword.edit',$language->id) }}" class="btn icon btn-primary"><i class="fas fa-code"></i></a>
                                             <button type="button" value="{{ $language->id }}" data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-primary editbtn "><i class="fas fa-edit"></i></button>
-                                            <a href="{{ route('admin.language.delete',$language->id) }}" class="btn icon btn-danger"><i class="fas fa-trash"></i></a>
+                                            {{-- <button type="button" class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#deleteModal{{ $language->id }}"><i class ="fa fa-trash"></i></button> --}}
 
                                             @endif
 
                                         </td>
                                     </tr>
+                                                                    {{-- Delete modal --}}
+                                                                    <div class="modal fade" id="deleteModal{{ $language->id }}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{ $language->id }}" aria-hidden="true">
+                                                                        <div class="modal-dialog" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title" id="deleteModalLabel{{ $language->id }}">Are You sure?</h5>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                        <span aria-hidden="true">&times;</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    Are you sure you want to delete this Language?
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                                                    <form method="POST" action="{{ route('admin.language.destroy', $language->id) }}">
+                                                                                        @csrf
+                                                                                        @method('DELETE')
+                                                                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                {{-- modal --}}
                                     @endforeach
 
 
@@ -179,7 +210,11 @@ data-bs-target="#createModal" class="btn btn-warning ">Add New Language</button>
 
 @endsection
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@push('js')
+<script src="{{ asset('assets/admin/js/bootstrap.bundle.min.js') }}"></script>
+@endpush
+@push('ref')
+<script src="{{ asset('assets/admin/js/jquery-3.6.0.min.js') }}"></script>
 <script>
     $(document).ready(function() {
         $(document).on('click', '.editbtn', function() {
@@ -201,3 +236,5 @@ data-bs-target="#createModal" class="btn btn-warning ">Add New Language</button>
         });
     });
 </script>
+@endpush
+

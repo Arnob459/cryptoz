@@ -25,10 +25,10 @@ class ChooseUsController extends Controller
              'choose_title' => 'required|string|max:255',
          ]);
 
-         $main = Page::first();
-         $main->choose_title = $request->choose_title;
-         $main->choose_subtitle = $request->choose_subtitle;
-         $main->save();
+         $data = Page::first();
+         $data->choose_title = $request->choose_title;
+         $data->choose_subtitle = $request->choose_subtitle;
+         $data->save();
          return back()->with('success','Updated Successfully');
      }
 
@@ -73,10 +73,13 @@ class ChooseUsController extends Controller
          $choose->save();
          return back()->with('success','Updated Successfully');
      }
-     public function chooseDelete($id){
-         $choose = Choose::find($id);
-         $choose ->delete();
-         return back()->with('success','Deleted Successfully');
-
+     public function destroy($id)
+     {
+         $data = Choose::find($id);
+         if (!$data) {
+             return back()->with('error', 'Item not found');
+         }
+         $data->delete();
+         return redirect()->back()->with('success', ' Deleted successfully');
      }
 }

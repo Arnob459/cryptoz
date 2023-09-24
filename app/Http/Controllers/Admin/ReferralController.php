@@ -22,9 +22,6 @@ class ReferralController extends Controller
     }
 
 
-
-
-
     public function levelStore(Request $request){
 
         // dd(count($request->percent));
@@ -62,11 +59,11 @@ class ReferralController extends Controller
 
         ]);
 
-        $info = Settings::first();
-        $info->deposit_com = $request->deposit_com;
-        $info->invest_com = $request->invest_com;
-        $info->invest_return_com = $request->invest_return_com;
-        $info->save();
+        $data = Settings::first();
+        $data->deposit_com = $request->deposit_com;
+        $data->invest_com = $request->invest_com;
+        $data->invest_return_com = $request->invest_return_com;
+        $data->save();
 
 
         return back()->with('success','Updated Successfully');

@@ -33,17 +33,17 @@ class BasicSettingsController extends Controller
 
         ]);
 
-        $info = Settings::first();
-        $info->site_name = $request->site_name;
-        $info->currency = $request->currency;
-        $info->currency_symbol = $request->currency_symbol;
-        $info->ur_message = $request->ur_message;
-        $info->ul_message = $request->ul_message;
-        $info->ev = $request->ev;
-        $info->en = $request->en;
-        $info->ul = $request->ul;
-        $info->ur = $request->ur;
-        $info->save();
+        $data = Settings::first();
+        $data->site_name = $request->site_name;
+        $data->currency = $request->currency;
+        $data->currency_symbol = $request->currency_symbol;
+        $data->ur_message = $request->ur_message;
+        $data->ul_message = $request->ul_message;
+        $data->ev = $request->ev;
+        $data->en = $request->en;
+        $data->ul = $request->ul;
+        $data->ur = $request->ur;
+        $data->save();
         return back()->with('success', "Basic Settings has been updated successfully");
     }
 
@@ -61,23 +61,23 @@ class BasicSettingsController extends Controller
             'favicon' => 'image|mimes:jpeg,png,jpg,ico|max:2048',
         ]);
 
-        $info = Settings::first();
+        $data = Settings::first();
 
         if ($request->hasFile('logo')) {
             $logo = $request->file('logo');
             $filename = $logo->getClientOriginalName();
             $logo->move(public_path('assets/admin/images/logo/'), $filename);
-            $info->logo =  $filename;
+            $data->logo =  $filename;
         }
 
         if ($request->hasFile('favicon')) {
             $favicon = $request->file('favicon');
             $filename = $favicon->getClientOriginalName();
             $favicon->move(public_path('assets/admin/images/logo/'), $filename);
-            $info->favicon =  $filename;
+            $data->favicon =  $filename;
         }
 
-        $info->save();
+        $data->save();
         return back()->with('success', "Logo and Favicon has been updated successfully");
     }
 
@@ -98,10 +98,10 @@ class BasicSettingsController extends Controller
 
         ]);
 
-        $info = Settings::first();
-        $info->email = $request->email;
-        $info->phone = $request->phone;
-        $info->save();
+        $data = Settings::first();
+        $data->email = $request->email;
+        $data->phone = $request->phone;
+        $data->save();
         return back()->with('success', "Contact updated successfully");
     }
 
@@ -119,16 +119,16 @@ class BasicSettingsController extends Controller
             'breadcrumb' => 'image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
-        $info = Settings::first();
+        $data = Settings::first();
 
         if ($request->hasFile('breadcrumb')) {
             $img = $request->file('breadcrumb');
             $file =  $img->getClientOriginalName();
             Image::make($img)->resize(1920,350)->save(public_path('assets/admin/images/breadcrumb/'.$file));
-            $info->breadcrumb =  $file;
+            $data->breadcrumb =  $file;
         }
 
-        $info->save();
+        $data->save();
         return back()->with('success', "Breadcrumb updated successfully");
     }
 
@@ -173,11 +173,14 @@ class BasicSettingsController extends Controller
           $social->save();
           return redirect()->back()->with('success','Updated Successfully');
       }
-      public function socialDelete($id){
-          $social = Social::find($id);
-          $social ->delete();
-          return redirect()->route('admin.choose')->with('success','Deleted Successfully');
-
+      public function destroy($id)
+      {
+          $data = Social::find($id);
+          if (!$data) {
+              return back()->with('error', 'Item not found');
+          }
+          $data->delete();
+          return redirect()->back()->with('success', ' Deleted successfully');
       }
 
     //Footer
@@ -197,10 +200,10 @@ class BasicSettingsController extends Controller
 
         ]);
 
-        $info = Settings::first();
-        $info->footer = $request->footer;
-        $info->copyright = $request->copyright;
-        $info->save();
+        $data = Settings::first();
+        $data->footer = $request->footer;
+        $data->copyright = $request->copyright;
+        $data->save();
         return redirect()->route('admin.footer')->with('success', "Footer updated successfully");
     }
 
