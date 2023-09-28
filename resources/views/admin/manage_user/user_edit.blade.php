@@ -5,7 +5,7 @@
     <section id="basic-vertical-layouts">
         <div class="row match-height">
             <div class="col-md-4 col-12">
-                <div class="card">
+                <div class="card ">
                     <div class="card-content">
                         <div class="card-body ">
                             <form class="form form-vertical">
@@ -85,113 +85,152 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-8 col-12">
-                <div class="card">
+                <div class="card ">
                     <div class="card-content">
                         <div class="card-body">
                             <div class="row">
 
-                                <div class=" col-lg-6 col-md-6">
-                                    <div class="card card-stats  card-success">
+                                <div class=" col-md-6 mb-3">
+                                    <div class="custom-card rounded">
                                         <div class="card-body px-4 py-4-5">
                                             <div class="row">
-                                                <div class="col-md-3  ">
-                                                    <div class="stats-icon green mb-2">
-                                                        <i class="fas fa-money-check-alt"></i>
+                                                <div class="col-md-4  ">
+                                                    <div class="stats-icon green  mb-2">
+                                                        <i class="fas fa-wallet"></i>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-9 ">
-                                                    <h6 class="text-muted font-semibold">Deposit Wallet Balance</h6>
-                                                    <h6 class="font-extrabold mb-0">17</h6>
+                                                <div class="col-md-8 ">
+                                                    <h6 class="">Deposit Wallet Balance</h6>
+                                                    <h6 class="font-extrabold mb-0">$ 0</h6>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="card">
+
+
+                                <div class="col-md-6 mb-3">
+                                    <div class="custom-card2 rounded">
                                         <div class="card-body px-4 py-4-5">
                                             <div class="row">
-                                                <div class="col-md-3  ">
+                                                <div class="col-md-4  ">
                                                     <div class="stats-icon blue mb-2">
-                                                        <i class="fas fa-money-check-alt"></i>
+                                                        <i class="fas fa-wallet"></i>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-9 ">
-                                                    <h6 class="text-muted font-semibold">Interest Wallet Balance</h6>
-                                                    <h6 class="font-extrabold mb-0">17</h6>
+                                                <div class="col-md-8 ">
+                                                    <h6 >Interest Wallet Balance</h6>
+                                                    <h6 class="font-extrabold mb-0">$ 0</h6>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-6 col-lg-6 col-md-6">
-                                    <div class="card">
+                                <div class="mb-3 col-md-6">
+                                    <div class="custom-card3 rounded">
                                         <div class="card-body px-4 py-4-5">
                                             <div class="row">
-                                                <div class="col-md-3  ">
-                                                    <div class="stats-icon blue mb-2">
-                                                        <i class="fas fa-coins"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-9 ">
-                                                    <h6 class="text-muted font-semibold">Total Invest</h6>
-                                                    <h6 class="font-extrabold mb-0">17</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-lg-6 col-md-6">
-                                    <div class="card">
-                                        <div class="card-body px-4 py-4-5">
-                                            <div class="row">
-                                                <div class="col-md-3  ">
-                                                    <div class="stats-icon green mb-2">
-                                                        <i class="fas fa-coins"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-9 ">
-                                                    <h6 class="text-muted font-semibold">Total Deposit</h6>
-                                                    <h6 class="font-extrabold mb-0">17</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-lg-6 col-md-6">
-                                    <div class="card">
-                                        <div class="card-body px-4 py-4-5">
-                                            <div class="row">
-                                                <div class="col-md-3  ">
-                                                    <div class="stats-icon green mb-2">
-                                                        <i class="fas fa-coins"></i>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-9 ">
-                                                    <h6 class="text-muted font-semibold">Total Withdraw</h6>
-                                                    <h6 class="font-extrabold mb-0">17</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-6 col-lg-6 col-md-6">
-                                    <div class="card">
-                                        <div class="card-body px-4 py-4-5">
-                                            <div class="row">
-                                                <div class="col-md-3  ">
+                                                <div class="col-md-4  ">
                                                     <div class="stats-icon blue mb-2">
                                                         <i class="fas fa-coins"></i>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-9 ">
-                                                    <h6 class="text-muted font-semibold">Total Transection</h6>
-                                                    <h6 class="font-extrabold mb-0">17</h6>
+                                                <div class="col-md-8 ">
+                                                    <h6 class="">Total Invest</h6>
+                                                    <h6 class="font-extrabold mb-0">$ 0</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <div class="custom-card4 rounded">
+                                        <div class="card-body px-4 py-4-5">
+                                            <div class="row">
+                                                <div class="col-md-4  ">
+                                                    <div class="stats-icon blue mb-2">
+                                                        <i class="fas fa-coins"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 ">
+                                                    <h6 class="">Total Interest Return</h6>
+                                                    <h6 class="font-extrabold mb-0">$ 0</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <div class="custom-card2 rounded">
+                                        <div class="card-body px-4 py-4-5">
+                                            <div class="row">
+                                                <div class="col-md-4  ">
+                                                    <div class="stats-icon blue mb-2">
+                                                        <i class="fas fa-coins"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 ">
+                                                    <h6 class="">Total Referral Commission</h6>
+                                                    <h6 class="font-extrabold mb-0">$ 0</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <div class="custom-card rounded">
+                                        <div class="card-body px-4 py-4-5">
+                                            <div class="row">
+                                                <div class="col-md-4  ">
+                                                    <div class="stats-icon green mb-2">
+                                                        <i class="fas fa-coins"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 ">
+                                                    <h6 >Total Deposit</h6>
+                                                    <h6 class="font-extrabold mb-0">$ 0</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <div class="custom-card4 rounded">
+                                        <div class="card-body px-4 py-4-5">
+                                            <div class="row">
+                                                <div class="col-md-4 ">
+                                                    <div class="stats-icon green mb-2">
+                                                        <i class="fas fa-coins"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 ">
+                                                    <h6 >Total Withdraw</h6>
+                                                    <h6 class="font-extrabold mb-0">$ 0</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 col-md-6">
+                                    <div class="custom-card4 rounded">
+                                        <div class="card-body px-4 py-4-5">
+                                            <div class="row">
+                                                <div class="col-md-4  ">
+                                                    <div class="stats-icon blue mb-2">
+                                                        <i class="fas fa-coins"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-8 ">
+                                                    <h6 >Total Transection</h6>
+                                                    <h6 class="font-extrabold mb-0">0</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -649,4 +688,25 @@
         </div>
     </section>
     </div>
+    <style>
+        /* Custom CSS class to change card color */
+        .custom-card {
+            background-color: #62b928; /* Change this to your desired color */
+            color: white; /* Change text color to contrast with the background */
+        }
+        .custom-card2 {
+            background-color: #5b3bdf; /* Change this to your desired color */
+            color: white; /* Change text color to contrast with the background */
+        }
+        .custom-card3 {
+            background-color: #c21aec; /* Change this to your desired color */
+            color: white; /* Change text color to contrast with the background */
+        }
+
+        .custom-card4 {
+            background-color: #1585d6; /* Change this to your desired color */
+            color: white; /* Change text color to contrast with the background */
+        }
+    </style>
 @endsection
+

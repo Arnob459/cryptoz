@@ -25,8 +25,8 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label class="mb-2" for="editor">Message</label>
-                                <textarea type="text" cols="10" rows="10" class="form-control" id="editor" name="message"  required ></textarea>
+                                <label class="mb-2" for="myNicEditor">Message</label>
+                                <textarea type="text" cols="10" rows="10" class="form-control" id="myNicEditor" name="message"  ></textarea>
                             </div>
                         </div>
 
@@ -40,18 +40,8 @@
     </div>
 </section>
 
-{{-- <script src="https://cdn.tiny.cloud/1/YOUR_API_KEY/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-<script type="text/javascript">
-    tinymce.init({
-        selector: '#editor',
-        plugins: 'autolink link image lists print preview',
-        toolbar: 'undo redo | bold italic | alignleft aligncenter alignright',
-    });
-</script> --}}
-
-
-{{-- @push('nicEdit') --}}
-{{-- <script type="text/javascript" src="//js.nicedit.com/nicEdit-latest.js"></script>
+@push('nicEdit')
+<script type="text/javascript" src="//js.nicedit.com/nicEdit-latest.js"></script>
 <!-- Include NicEdit from a CDN -->
 
 
@@ -65,9 +55,9 @@
         );
     });
     //]]>
-    </script> --}}
+    </script>
 
-{{-- @endpush --}}
+@endpush
 
 
 

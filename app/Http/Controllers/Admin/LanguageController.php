@@ -83,7 +83,7 @@ class LanguageController extends Controller
     {
         $data = Language::find($id);
         if (!$data) {
-            return back()->with('error', 'Item not found');
+            return redirect()->back()->with('success', ' Deleted successfully');
         }
         $data->delete();
         return redirect()->back()->with('success', ' Deleted successfully');
@@ -107,9 +107,14 @@ class LanguageController extends Controller
 
     public function keywordEdit($id){
 
-        $data['page_title'] = 'Update '. Language::where('id',$id)->value('name'). ' Keywords';
-        $data['title'] = Language::where('id',$id)->value('name');
+        $language = Language::where('id',$id)->first();
+
+        $data['page_title'] = 'Update '. $language->name . ' Keywords';
+        $data['title'] = $language->name;
+        $data['id'] = $language->id;
         $data['keywords'] = Keyword::where('language_id',$id)->get();
+        $data['languages'] = Language::where('id','!=',$id)->get();
+
         return view('admin.language.keywords',$data);
 
     }
@@ -122,6 +127,22 @@ class LanguageController extends Controller
 
         return back()->with('success', " updated successfully");
 
+    }
+
+    public function keywordImport($id)
+    {
+
+
+    }
+
+    public function destroyKeyword($id)
+    {
+        $data = Keyword::find($id);
+        if (!$data) {
+            return redirect()->back()->with('success', ' Deleted successfully');
+        }
+        $data->delete();
+        return redirect()->back()->with('success', ' Deleted successfully');
     }
 
 }

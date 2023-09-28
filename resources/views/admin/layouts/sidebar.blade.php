@@ -11,8 +11,11 @@
             <div class="d-flex justify-content-between align-items-center">
 
                 <div class="logo">
-                    <a href="{{ route('admin.dashboard') }}"><img src="{{ asset('assets/admin/images/logo/logo.svg') }}" alt="Logo" srcset=""></a>
+                    <a href="{{ route('admin.dashboard') }}"><img src="{{ asset('assets/admin/images/logo/logo.png') }}" alt="Logo" srcset=""></a>
                 </div>
+
+
+
 
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                     <div class="form-check form-switch fs-6">
@@ -32,7 +35,7 @@
 
 
                 <li
-                    class="sidebar-item {{ Route::is('dashboard') ? 'active' : '' }}">
+                    class="sidebar-item {{ Route::is('admin.dashboard') ? 'active' : '' }}">
                     <a href="{{ route('admin.dashboard') }}" class="sidebar-link">
                         <i class="fas fa-home"></i>
                         <span>Dashboard</span>
@@ -40,7 +43,7 @@
                 </li>
 
                 <li
-                    class="sidebar-item {{ Route::is('referral') ? 'active' : '' }} ">
+                    class="sidebar-item {{ Route::is('admin.referral') ? 'active' : '' }} ">
                     <a href="{{ route('admin.referral') }}" class="sidebar-link">
                         <i class="far fa-handshake"></i>
                         <span>Referral Levels</span>
@@ -48,7 +51,7 @@
                 </li>
 
                 <li
-                    class="sidebar-item {{ Route::is('plan') ? 'active' : '' }} ">
+                    class="sidebar-item {{ Route::is('admin.plan') ? 'active' : '' }} ">
                     <a href="{{ route('admin.plan') }}" class="sidebar-link">
                         <i class="far fa-lightbulb"></i>
                         <span>Manage Plan</span>
@@ -56,7 +59,7 @@
                 </li>
 
                 <li
-                    class="sidebar-item {{ Route::is('rewards') ? 'active' : '' }} ">
+                    class="sidebar-item {{ Route::is('admin.rewards') ? 'active' : '' }} ">
                     <a href="{{ route('admin.rewards') }}" class="sidebar-link">
                         <i class="fas fa-gifts"></i>
                         <span>Manage Rewards</span>
@@ -78,16 +81,16 @@
                         <li class="submenu-item {{ Route::is('admin.activeusers') ? 'active' : '' }} ">
                             <a href="{{ route('admin.activeusers') }}">Active Users</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.pendingusers') ? 'active' : '' }}">
                             <a href="{{ route('admin.pendingusers') }}">Pending Users</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.blockedusers') ? 'active' : '' }}">
                             <a href="{{ route('admin.blockedusers') }}">Block Users</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.emailunverified') ? 'active' : '' }}">
                             <a href="{{ route('admin.emailunverified') }}">Email Unverified</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.smsunverified') ? 'active' : '' }}">
                             <a href="{{ route('admin.smsunverified') }}">Sms Unverified</a>
                         </li>
                     </ul>
@@ -100,10 +103,10 @@
                         <span>Subscribers</span>
                     </a>
                     <ul class="submenu ">
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.subscribers') ? 'active' : '' }}">
                             <a href="{{ route('admin.subscribers') }}">Subscribers</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.subscribers.mail') ? 'active' : '' }}">
                             <a href="{{ route('admin.subscribers.mail') }}">Mail to Subscribers</a>
                         </li>
                     </ul>
@@ -201,22 +204,22 @@
                         <span>Basic Settings</span>
                     </a>
                     <ul class="submenu ">
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.settings') ? 'active' : '' }}">
                             <a href="{{ route('admin.settings') }}">Basic</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.logo') ? 'active' : '' }}">
                             <a href="{{ route('admin.logo') }}">Logo & favicon</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.contact') ? 'active' : '' }}">
                             <a href="{{ route('admin.contact') }}">Contact</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.breadcrumb') ? 'active' : '' }}">
                             <a href="{{ route('admin.breadcrumb') }}">Breadcrumb</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.social.create') ? 'active' : '' }}">
                             <a href="{{ route('admin.social.create') }}">Social</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.footer') ? 'active' : '' }}">
                             <a href="{{ route('admin.footer') }}">Footer Section</a>
                         </li>
 
@@ -229,52 +232,52 @@
                         <span>Home Page</span>
                     </a>
                     <ul class="submenu ">
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.banner') ? 'active' : '' }}">
                             <a href="{{ route('admin.banner') }}">Banner</a>
                         </li>
-                         <li class="submenu-item ">
+                         <li class="submenu-item {{ Route::is('admin.slider') ? 'active' : '' }}">
                             <a href="{{ route('admin.slider') }}">Slider</a>
                         </li>
 
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.services') ? 'active' : '' }}">
                             <a href="{{ route('admin.services') }}">Services</a>
                         </li>
 
-                       <li class="submenu-item ">
+                       <li class="submenu-item {{ Route::is('admin.about') ? 'active' : '' }}">
                             <a href="{{ route('admin.about') }}">About Us</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.counter') ? 'active' : '' }}">
                             <a href="{{ route('admin.counter') }}">Counter Section</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.work') ? 'active' : '' }}">
                             <a href="{{ route('admin.work') }}">How it's Work</a>
                         </li>
-                         <li class="submenu-item ">
+                         <li class="submenu-item {{ Route::is('admin.faq') ? 'active' : '' }}">
                             <a href="{{ route('admin.faq') }}">Faq </a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.choose') ? 'active' : '' }}">
                             <a href="{{ route('admin.choose') }}">Why Choose Us </a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.testimonial') ? 'active' : '' }}">
                             <a href="{{ route('admin.testimonial') }}">Testimonial</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.blog') ? 'active' : '' }}">
                             <a href="{{ route('admin.blog') }}">Blog</a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.titleSubtitle') ? 'active' : '' }}">
                             <a href="{{ route('admin.titleSubtitle') }}">Title Subtitle </a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.privacy') ? 'active' : '' }}">
                             <a href="{{ route('admin.privacy') }}">Privacy </a>
                         </li>
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.terms') ? 'active' : '' }}">
                             <a href="{{ route('admin.terms') }}">Terms</a>
                         </li>
 
                     </ul>
                 </li>
                 <li
-                    class="sidebar-item  ">
+                    class="sidebar-item {{ Route::is('admin.language') ? 'active' : '' }} ">
                     <a href="{{ route('admin.language') }}" class="sidebar-link">
                         <i class="fas fa-language"></i>
                         <span>Language Manager </span>
@@ -289,10 +292,10 @@
                         <span>SMS Manager</span>
                     </a>
                     <ul class="submenu ">
-                        <li class="submenu-item ">
+                        <li class="submenu-item {{ Route::is('admin.sms.api') ? 'active' : '' }}">
                             <a href="{{ route('admin.sms.api') }}">Api Settings</a>
                         </li>
-                         <li class="submenu-item ">
+                         <li class="submenu-item {{ Route::is('admin.sms.templete') ? 'active' : '' }}">
                             <a href="{{ route('admin.sms.templete') }}">SMS Templetes</a>
                         </li>
 

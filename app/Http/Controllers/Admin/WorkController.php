@@ -79,7 +79,7 @@ class WorkController extends Controller
       {
           $data = Work::find($id);
           if (!$data) {
-              return back()->with('error', 'Item not found');
+              return redirect()->back()->with('success', ' Deleted successfully');
           }
           $data->delete();
           return redirect()->back()->with('success', ' Deleted successfully');

@@ -17,47 +17,69 @@
 
 </head>
 @include('admin.layouts.sidebar')
-<section class="section">
-    <div class="card">
-
-        <div class="card-body">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Active</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Active</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Active</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{  route('admin.profile') }}">My Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{  route('admin.password') }}">settings</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('admin.logout') }}">Logout</a>
-                </li>
-
-            </ul>
-        </div>
-    </div>
-    </section>
     <div id="main">
+        <header class='mb-3'>
+            <nav class="navbar navbar-expand navbar-light navbar-top">
+                <div class="container-fluid">
+                    <a href="#" class="burger-btn d-block">
+                        <i class="bi bi-justify fs-3"></i>
+                    </a>
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <div class=" navbar-nav ms-auto mb-lg-0 dropdown">
+                            <a href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="user-menu d-flex">
+
+                                    <div class="user-img d-flex align-items-center">
+                                        <div class="avatar avatar-md">
+                                            <img src="{{ asset('assets/admin/images/avatar/'.Auth::guard('admin')->user()->avatar) }}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton" style="min-width: 11rem;">
+                                <li>
+                                    <h6 class="text-center" > {{ Auth::guard('admin')->user()->name }} </h6>
+                                    <h6 class="dropdown-header"> {{ Auth::guard('admin')->user()->email }} </h6>
+                                    <hr class="dropdown-divider">
+
+                                </li>
+                                <li><a class="dropdown-item" href="{{  route('admin.profile') }}"><i class="icon-mid bi bi-person me-2"></i> My
+                                        Profile</a></li>
+                                <li><a class="dropdown-item" href="{{  route('admin.password') }}"><i class="icon-mid bi bi-gear me-2"></i>
+                                        Settings</a></li>
+
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{{ route('admin.logout') }}"><i
+                                            class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
         @if (session('error'))
         <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> {{session('error')}}</div>
         @endif
 
-        @if (session('errors'))
-        <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> {{session('errors')}}</div>
+        @if ($errors->any())
+            <div class="alert alert-warning">
+
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <i class="bi bi-exclamation-triangle"></i> {{ $error }} <br>
+                    @endforeach
+                </ul>
+            </div>
         @endif
+
 
         @if (session('success'))
             <div class="alert alert-success"><i class="bi bi-check-circle"></i> {{session('success')}}</div>
@@ -90,7 +112,7 @@
 <footer>
     <div class="footer clearfix mb-0 text-muted">
         <div class="float-start">
-            <p>2023 &copy; Mazer</p>
+            <p>2023 &copy; {{ $gnl->site_name }}</p>
         </div>
 
     </div>

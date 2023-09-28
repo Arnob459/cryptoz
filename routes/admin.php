@@ -26,13 +26,15 @@ Route::name('admin.')->group(function() {
     Route::middleware(['is_admin'])->group(function () {
         //Dashboard
         Route::get('/dashboard', [DashboardController::class, 'Index'])->name('dashboard');
+        Route::get('/test', [DashboardController::class, 'Index1'])->name('test');
+
         //Profile
         Route::get('/profile', [DashboardController::class, 'Profile'])->name('profile');
         Route::post('/update',[DashboardController::class,'profileUpdate'])->name('profile.update');
 
         //password
-        Route::get('/change/password',[DashboardController::class,'ChangePassword'])->name('password');
-        Route::post('/change/password',[DashboardController::class,'UpdatePassword'])->name('password.update');
+        Route::get('/change/password',[DashboardController::class,'changePassword'])->name('password');
+        Route::post('/change/password',[DashboardController::class,'updatePassword'])->name('password.update');
 
         //Referral
         Route::get('/referrals', [ReferralController::class, 'Index'])->name('referral');
@@ -226,6 +228,10 @@ Route::name('admin.')->group(function() {
         Route::get('language/view/{id}', [LanguageController::class, 'keywordEdit'])->name('keyword.edit');
         Route::put('language/view/update', [LanguageController::class, 'KeywordUpdate'])->name('keyword.update');
         Route::post('language/keyword/create', [LanguageController::class, 'keywordStore'])->name('keyword.store');
+        Route::delete('/keyword/destroy/{id}', [LanguageController::class, 'destroyKeyword'])->name('keyword.destroy');
+        Route::get('keyword/import/{id}', [LanguageController::class, 'keywordImport'])->name('keyword.import');
+
+
 
 
 

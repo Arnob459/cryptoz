@@ -68,14 +68,14 @@ class DashboardController extends Controller
         return back()->with('success','Admin Information Updated Successfully');
     }
 
-    public function ChangePassword() {
+    public function changePassword() {
 
         $data['page_title'] = 'Change Password';
         return view('admin.profile.change_password', $data);
     }
 
 
-    public function UpdatePassword(Request $request) {
+    public function updatePassword(Request $request) {
 
         $admin = Auth::guard('admin')->user();
 

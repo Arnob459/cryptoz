@@ -25,8 +25,8 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="editor">Terms & Conditions Description<span class="required-label">*</span></label>
-                                <textarea type="text" cols="20" rows="20" class="form-control" id="editor" name="terms_description"  required >{{ $terms->terms_description }}</textarea>
+                                <label for="myNicEditor">Terms & Conditions Description<span class="required-label">*</span></label>
+                                <textarea type="text" cols="20" rows="20" class="form-control" id="myNicEditor" name="terms_description"  required >{{ $terms->terms_description }}</textarea>
                             </div>
                         </div>
 
@@ -40,7 +40,24 @@
     </div>
 </section>
 
+@push('nicEdit')
+<script type="text/javascript" src="//js.nicedit.com/nicEdit-latest.js"></script>
+<!-- Include NicEdit from a CDN -->
 
+
+<script type="text/javascript">
+    //<![CDATA[
+    bkLib.onDomLoaded(function() {
+        nicEditors.editors.push(
+            new nicEditor().panelInstance(
+                document.getElementById('myNicEditor')
+            )
+        );
+    });
+    //]]>
+    </script>
+
+@endpush
 
 @endsection
 

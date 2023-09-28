@@ -50,7 +50,7 @@ data-bs-target="#createModal" class="btn btn-warning ">Add New Language</button>
                                             @else
                                             <a href="{{ route('admin.keyword.edit',$language->id) }}" class="btn icon btn-primary"><i class="fas fa-code"></i></a>
                                             <button type="button" value="{{ $language->id }}" data-bs-toggle="modal" data-bs-target="#editModal" class="btn btn-primary editbtn "><i class="fas fa-edit"></i></button>
-                                            {{-- <button type="button" class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#deleteModal{{ $language->id }}"><i class ="fa fa-trash"></i></button> --}}
+                                            <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#deleteModal{{ $language->id }}"><i class ="fa fa-trash"></i></button>
 
                                             @endif
 
