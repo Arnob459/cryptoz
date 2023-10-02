@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Plan;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use Image;
 
 
 
@@ -34,6 +36,8 @@ class PlanController extends Controller
             'fixed_amount' => $request->input('amount_type') === 'fixed' ? 'required|numeric|min:1' : '',
             'earning_capasity' => 'required|numeric|min:1',
             'daily_earning' => 'required|numeric|min:1',
+            'image' => 'image|mimes:jpeg,png,jpg|max:2048',
+
         ]);
 
 
@@ -42,6 +46,14 @@ class PlanController extends Controller
         $plan->amount_type = $request->input('amount_type');
         $plan->earning_capasity = $request->input('earning_capasity');
         $plan->daily_earning = $request->input('daily_earning');
+
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $file =  $img->getClientOriginalName();
+            Image::make($img)->resize(512,512)->save(public_path('assets/admin/images/plan/'.$file));
+            $plan->image =  $file;
+
+        }
 
 
         if ($request->input('amount_type') === 'range') {
@@ -76,6 +88,8 @@ class PlanController extends Controller
             'fixed_amount' => $request->input('amount_type') === 'fixed' ? 'required|numeric|min:1' : '',
             'earning_capasity' => 'required|numeric|min:1',
             'daily_earning' => 'required|numeric|min:1',
+            'image' => 'image|mimes:jpeg,png,jpg|max:2048',
+
         ]);
 
         $plan = Plan::findorfail($id);
@@ -86,6 +100,12 @@ class PlanController extends Controller
         $plan->daily_earning = $request->daily_earning;
         $plan->status = $request->status;
 
+        if ($request->hasFile('image')) {
+            $img = $request->file('image');
+            $file =  $img->getClientOriginalName();
+            Image::make($img)->resize(512,512)->save(public_path('assets/admin/images/plan/'.$file));
+            $plan->image =  $file;
+        }
 
 
         if ($request->input('amount_type') === 'range') {

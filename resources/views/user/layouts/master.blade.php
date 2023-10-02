@@ -68,12 +68,12 @@
                         </a>
                     </div>
                     <ul class="dashboard-menu">
-                        <li>
-                            <a href="dashboard.html" class="active"><i class="flaticon-man"></i>Dashboard</a>
+                        <li >
+                            <a class="{{ Request::is('user/home*') ? 'active' : '' }}"  href="{{ route('user.home') }}" ><i class="flaticon-man"></i>Dashboard</a>
                         </li>
 
-                        <li>
-                            <a href=""><i class="flaticon-interest"></i>Investment Plan</a>
+                        <li >
+                            <a class="{{ Request::is('user/investment-plan*') ? 'active' : '' }}" href="{{ route('user.investment.plan') }}" ><i class="flaticon-interest"></i>Investment Plan</a>
                         </li>
 
                         <li>
@@ -95,8 +95,8 @@
                         <li>
                             <a href="ticket.html"><i class="flaticon-deal"></i>Transactions</a>
                         </li>
-                        <li>
-                            <a href="promotional-metarials.html"><i class="fas fa-users"></i>Referral Statistic</a>
+                        <li >
+                            <a class="{{ Request::is('user/referral-statistic*') ? 'active' : '' }}" href="{{ route('user.referral.statistic') }}"><i class="fas fa-users"></i>Referral Statistic</a>
                         </li>
                         <li>
                             <a href="promotional-metarials.html"><i class="fas fa-coins"></i>Referral Commissions</a>
