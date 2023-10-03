@@ -2,15 +2,17 @@
 <html lang="en">
 
 
-<!-- Mirrored from pixner.net/hyipland/demo/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Sep 2023 12:10:42 GMT -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>{{ $gnl->site_name }}</title>
+    {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('assets/user/css/bootstrap.min.css') }}"> --}}
 
-    <link rel="stylesheet" href="{{ asset('assets/user/css/bootstrap.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/user/bootstrap5/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/user/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/user/css/animate.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/user/css/odometer.css') }}">
@@ -68,44 +70,37 @@
                         </a>
                     </div>
                     <ul class="dashboard-menu">
-                        <li >
-                            <a class="{{ Request::is('user/home*') ? 'active' : '' }}"  href="{{ route('user.home') }}" ><i class="flaticon-man"></i>Dashboard</a>
+                        <li class="nav-item"><a class="nav-link {{ Route::is('user.home') ? 'active' : '' }}" href="{{ route('user.home') }}"><i class="flaticon-man"></i>Dashboard</a></li>
+
+                        <li class="nav-item"> <a class="nav-link {{ Route::is('user.investment.plan') ? 'active' : '' }}" href="{{ route('user.investment.plan') }}" ><i class="flaticon-interest"></i>Investment Plan</a> </li>
+
+                        <li class="nav-item"><a class="nav-link " href=""><i class="fas fa-book"></i>Return Log</a></li>
+
+                        <li class="nav-item"><a class="nav-link " href="deposit.html"><i class="fas fa-coins"></i>Deposit Now</a>
                         </li>
 
-                        <li >
-                            <a class="{{ Request::is('user/investment-plan*') ? 'active' : '' }}" href="{{ route('user.investment.plan') }}" ><i class="flaticon-interest"></i>Investment Plan</a>
+                        <li class="nav-item"><a class="nav-link " href="deposit.html"><i class="flaticon-exchange"></i>Deposit History</a>
                         </li>
 
-                        <li>
-                            <a href="fund-transfer.html"><i class="fas fa-book"></i>Return Log </a>
-                        </li>
-                        <li>
-                            <a href="deposit.html"><i class="fas fa-coins"></i>Deposit Now</a>
-                        </li>
-                        <li>
-                            <a href="deposit.html"><i class="flaticon-exchange"></i>Deposit History</a>
-                        </li>
-                        <li>
-                            <a href="withdraw.html"><i class="flaticon-atm"></i>Withdraw</a>
-                        </li>
-                        <li>
-                            <a href="partners.html"><i class="flaticon-exchange"></i>Withdraw History</a>
+                        <li class="nav-item"><a class="nav-link "href="withdraw.html"><i class="flaticon-atm"></i>Withdraw</a>
                         </li>
 
-                        <li>
-                            <a href="ticket.html"><i class="flaticon-deal"></i>Transactions</a>
+                        <li class="nav-item"><a class="nav-link " href="partners.html"><i class="flaticon-exchange"></i>Withdraw History</a>
                         </li>
-                        <li >
-                            <a class="{{ Request::is('user/referral-statistic*') ? 'active' : '' }}" href="{{ route('user.referral.statistic') }}"><i class="fas fa-users"></i>Referral Statistic</a>
+
+                        <li class="nav-item"><a class="nav-link " href="ticket.html"><i class="flaticon-deal"></i>Transactions</a>
                         </li>
-                        <li>
-                            <a href="promotional-metarials.html"><i class="fas fa-coins"></i>Referral Commissions</a>
+
+                        <li class="nav-item"><a class="nav-link {{ Route::is('user.referral.statistic') ? 'active' : '' }}" href="{{ route('user.referral.statistic') }}"><i class="fas fa-users"></i>Referral Statistic</a>
                         </li>
-                        <li>
-                            <a href="promotional-metarials.html"><i class="fas fa-user"></i>Profile </a>
+
+                        <li class="nav-item"><a class="nav-link " href="promotional-metarials.html"><i class="fas fa-coins"></i>Referral Commissions</a>
                         </li>
-                        <li>
-                            <a href="{{ route('user.logout') }}"><i class="flaticon-right-arrow"></i>Logout</a>
+
+                        <li class="nav-item"><a class="nav-link " href="promotional-metarials.html"><i class="fas fa-user"></i>Profile </a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link " href="{{ route('user.logout') }}"><i class="flaticon-right-arrow"></i>Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -126,9 +121,9 @@
                                     </div>
                                     <ul class="menu">
 
-                                        <li>
-                                            <a href="">Dashboard</a>
-                                        </li>
+                                        <li class="nav-item"><a class="nav-link" href="{{ route('user.home') }}">Dashboard</a></li>
+
+
                                         <li class="nav-item dropdown">
                                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                                                aria-haspopup="true" aria-expanded="false">Investment</a>
@@ -194,7 +189,9 @@
                         <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="{{ asset('assets/user/js/jquery-3.3.1.min.js') }}"></script>
                         <script src="{{ asset('assets/user/js/modernizr-3.6.0.min.js') }}"></script>
                         <script src="{{ asset('assets/user/js/plugins.js') }}"></script>
-                        <script src="{{ asset('assets/user/js/bootstrap.min.js') }}"></script>
+                        {{-- <script src="{{ asset('assets/user/js/bootstrap.min.js') }}"></script> --}}
+                        <script src="{{ asset('assets/user/bootstrap5/js/bootstrap.min.js') }}"></script>
+
                         <script src="{{ asset('assets/user/js/magnific-popup.min.js') }}"></script>
                         <script src="{{ asset('assets/user/js/jquery-ui.min.js') }}"></script>
                         <script src="{{ asset('assets/user/js/wow.min.js') }}"></script>

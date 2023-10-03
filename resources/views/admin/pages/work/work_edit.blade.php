@@ -58,7 +58,7 @@
                         </div>
 
 
-                <button type="submit" class="btn btn-success  me-1 mb-1">Submit</button>
+                <button  type="submit" class="btn btn-success  me-1 mb-1">Submit</button>
 
             </form>
 
@@ -66,7 +66,20 @@
         </div>
     </div>
 </section>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+@if (Session::has('message'))
+
+<script>
+    toastr.options = {
+        "progressBar": true,
+        "closeButton": true,
+    }
+    toastr.success("{{ Session::get('message') }}");
+</script>
+
+@endif --}}
 
 @endsection
+
 
 

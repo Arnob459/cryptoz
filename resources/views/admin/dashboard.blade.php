@@ -15,6 +15,7 @@
                                         <i class="fas fa-users"></i>
                                     </div>
                                 </div>
+
                                 <div class="col-md-9 ">
                                     <h6 class="text-muted font-semibold">Total Users </h6>
                                     <h6 class="font-extrabold mb-0">{{ $all_users }}</h6>

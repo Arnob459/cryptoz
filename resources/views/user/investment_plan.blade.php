@@ -12,12 +12,9 @@
             <div class="container text-white mb-3">
                 <h3 class="title text-white">Investment Plan</h3>
                 <ul class="breadcrumb">
-                    <li>
-                        <a href="">Home</a>
-                    </li>
-                    <li>
-                        Plan
-                    </li>
+                    <li class="nav-item"><a class="nav-link " href="">Home</a></li>
+
+                    <li> Plan </li>
                 </ul>
             </div>
 
@@ -80,7 +77,50 @@
 
 
                 </div>
+
             </div>
+
         </section>
+
+        {{-- <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+              <div class="toast-body">
+                Hello, world! This is a toast message.
+              </div>
+              <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </div> --}}
+
+        <div class="container-fluid sticky-bottom">
+            <div class="footer-bottom">
+                <div class="footer-bottom-area">
+                    <div >
+                        <p> Copyright © 2020. All rights reserved</p>
+                    </div>
+                    <ul class="social-icons">
+                        <li>
+                            <a href="#0">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0" class="active">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
 @endsection

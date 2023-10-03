@@ -1,6 +1,6 @@
 <ul >
     @foreach($children as $child)
-        <li class="ml-3">
+        <li class="ms-3">
             {{ $child->name }}
             @if(count($child->children))
                 @include('manageChild',['children' => $child->children])

@@ -8,9 +8,7 @@
                     <div class="dashboard-hero-content text-white">
                         <h3 class="title">Dashboard</h3>
                         <ul class="breadcrumb">
-                            <li>
-                                <a href="">Home</a>
-                            </li>
+                            <li class="nav-item"><a class="nav-link " href="">Home</a> </li>
                             <li>
                                 Dashboard
                             </li>
@@ -27,7 +25,7 @@
                                         <h5 class="amount">0 USD</h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="{{ asset('assets/user/images/dashboard/dashboard1.png') }}" alt="dasboard">
+                                        <i class="fa-2x flaticon-wallet"></i>
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +38,7 @@
                                         <h5 class="amount">0 USD</h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="{{ asset('assets/user/images/dashboard/dashboard1.png') }}" alt="dasboard">
+                                        <i class="fa-2x flaticon-wallet"></i>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +51,8 @@
                                         <h5 class="amount">0 USD</h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="{{ asset('assets/user/images/dashboard/dashboard1.png') }}" alt="dasboard">
+                                        <i class="fa-2x flaticon-coin"></i>
+
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +65,8 @@
                                         <h5 class="amount">0 USD</h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="{{ asset('assets/user/images/dashboard/dashboard1.png') }}" alt="dasboard">
+                                        <i class="fa-2x flaticon-atm"></i>
+
                                     </div>
                                 </div>
                             </div>
@@ -79,7 +79,8 @@
                                         <h5 class="amount">0 USD</h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="{{ asset('assets/user/images/dashboard/dashboard1.png') }}" alt="dasboard">
+                                        <i class="fa-2x flaticon-coin"></i>
+
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +93,8 @@
                                         <h5 class="amount">0 USD</h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="{{ asset('assets/user/images/dashboard/dashboard1.png') }}" alt="dasboard">
+                                        <i class="fa-2x flaticon-interest"></i>
+
                                     </div>
                                 </div>
                             </div>
@@ -105,7 +107,8 @@
                                         <h5 class="amount">0 USD</h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="{{ asset('assets/user/images/dashboard/dashboard1.png') }}" alt="dasboard">
+                                        <i class="fa-2x flaticon-interest"></i>
+
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +121,8 @@
                                         <h5 class="amount">0 USD</h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="{{ asset('assets/user/images/dashboard/dashboard1.png') }}" alt="dasboard">
+                                        <i class="fa-2x flaticon-interest"></i>
+
                                     </div>
                                 </div>
                             </div>
@@ -131,7 +135,8 @@
                                         <h5 class="amount">0 USD</h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="{{ asset('assets/user/images/dashboard/dashboard1.png') }}" alt="dasboard">
+                                        <i class="fa-2x flaticon-interest"></i>
+
                                     </div>
                                 </div>
                             </div>
@@ -144,7 +149,8 @@
                                         <h5 class="amount">0 USD</h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="{{ asset('assets/user/images/dashboard/dashboard1.png') }}" alt="dasboard">
+                                        <i class="fa-2x flaticon-interest"></i>
+
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +163,8 @@
                                         <h5 class="amount">0 USD</h5>
                                     </div>
                                     <div class="col-md-3">
-                                        <img src="{{ asset('assets/user/images/dashboard/dashboard1.png') }}" alt="dasboard">
+                                        <i class="fa-2x flaticon-exchange"></i>
+
                                     </div>
                                 </div>
                             </div>
@@ -169,6 +176,9 @@
                                         <span class="title">Total Referral</span>
                                         <h5 class="amount">0 </h5>
                                     </div>
+                                    <div class="col-md-3">
+                                        <i class="fa-2x flaticon-team"></i>
+                                    </div>
 
                                 </div>
                             </div>
@@ -179,8 +189,8 @@
                 <div class="container-fluid sticky-bottom">
                     <div class="footer-bottom">
                         <div class="footer-bottom-area">
-                            <div class="left">
-                                <p>&copy; 2020 <a href="#0">Hyipland</a> | All right reserved</p>
+                            <div >
+                                <p> Copyright © 2020. All rights reserved</p>
                             </div>
                             <ul class="social-icons">
                                 <li>
@@ -206,7 +216,6 @@
                             </ul>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>

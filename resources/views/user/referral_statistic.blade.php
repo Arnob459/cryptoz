@@ -7,8 +7,7 @@
         <div class="dashboard-hero-content text-white">
             <h3 class="title">Referral Statistic</h3>
             <ul class="breadcrumb">
-                <li>
-                    <a href="">Home</a>
+                <li class="nav-item"><a class="nav-link " href="">Home</a>
                 </li>
                 <li>
                     Referral Statistic
@@ -33,13 +32,17 @@
                                 </div>
                                 <input type="text" id="copyLinks" readonly value="https://hyipland.com/?ref={{ $user->name }}">
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="partners ">
+
+
+
+        <div class="partners  ">
             <div class="d-flex justify-content-center row mb-30-none">
 
                 <div class="col-lg-10 mb-30">
@@ -64,7 +67,7 @@
 
                                 <ul >
                                     @foreach($user->children as $child)
-                                        <li class="ml-3">
+                                        <li class="ms-3">
                                             {{ $child->name }}
                                             @if(count($child->children))
                                                 @include('manageChild',['children' => $child->children])
@@ -78,8 +81,40 @@
                 </div>
             </div>
         </div>
+        <div class="container-fluid sticky-bottom">
+            <div class="footer-bottom">
+                <div class="footer-bottom-area">
+                    <div >
+                        <p> Copyright © 2020. All rights reserved</p>
+                    </div>
+                    <ul class="social-icons">
+                        <li>
+                            <a href="#0">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0" class="active">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#0">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
-
 @endsection
+
