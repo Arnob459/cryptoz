@@ -15,4 +15,9 @@ class InvestmentController extends Controller
 
         return view('user.investment_plan',$data);
     }
+
+    public function invest()
+    {
+        return redirect()->route('user.investment.plan')->with('success','slider Create Successfully');
+    }
 }

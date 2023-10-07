@@ -22,6 +22,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
-        view()->share(['gnl' => \App\Models\Settings::first(['logo','site_name','currency','currency_symbol'])]);
+        view()->share(['gnl' => \App\Models\Settings::first(['logo','favicon','site_name','currency','currency_symbol'])]);
     }
 }

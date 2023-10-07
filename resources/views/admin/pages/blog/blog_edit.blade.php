@@ -41,9 +41,10 @@
 
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="basicInput">Enter Description</label>
-                                <textarea type="text" cols="10" rows="10" class="form-control" id="basicInput" name="description" required >{{ $blog->description }}</textarea>
+                                <label for="myNicEditor">Enter Description</label>
+                                <textarea type="text" cols="10" rows="10" class="form-control" id="myNicEditor"name="description" required >{{  $blog->description  }}</textarea>
                             </div>
+
                         </div>
 
                     </div>
@@ -60,7 +61,6 @@
 </section>
 
 @push('js')
-<script src="{{ asset('assets/admin/js/jquery-3.6.0.min.js') }}"></script>
 <script>
     function previewImage(input) {
         if (input.files && input.files[0]) {
@@ -79,6 +79,25 @@
     });
 </script>
 @endpush
+@push('nicEdit')
+<script type="text/javascript" src="//js.nicedit.com/nicEdit-latest.js"></script>
+<!-- Include NicEdit from a CDN -->
+
+
+<script type="text/javascript">
+    //<![CDATA[
+    bkLib.onDomLoaded(function() {
+        nicEditors.editors.push(
+            new nicEditor().panelInstance(
+                document.getElementById('myNicEditor')
+            )
+        );
+    });
+    //]]>
+    </script>
+
+@endpush
+
 
 @endsection
 

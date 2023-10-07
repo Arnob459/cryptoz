@@ -204,7 +204,13 @@ class BasicSettingsController extends Controller
         $data->footer = $request->footer;
         $data->copyright = $request->copyright;
         $data->save();
-        return redirect()->route('admin.footer')->with('success', "Footer updated successfully");
+
+
+        return redirect()->back()->with('success', ' Updated successfully');
+        //  return redirect()->route('admin.footer');
+        // return redirect()->route('admin.footer')->with('success', "Footer updated successfully");
+
+
     }
 
 

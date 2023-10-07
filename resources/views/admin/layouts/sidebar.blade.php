@@ -7,29 +7,22 @@
 
     <div class="sidebar-wrapper active">
 
-        <div class="sidebar-header position-relative">
-            <div class="d-flex justify-content-between align-items-center">
-
-                <div class="logo">
-                    <a href="{{ route('admin.dashboard') }}"><img src="{{ asset('assets/admin/images/logo/logo.png') }}" alt="Logo" srcset=""></a>
-                </div>
-
-
-
+            <div class=" d-flex justify-content-center m-4 " >
+                    <a href="{{ route('admin.dashboard') }}"><img height="50vh" src="{{ asset('assets/admin/images/logo/logo.png') }}" alt="Logo" srcset=""></a>
+            </div>
 
                 <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                     <div class="form-check form-switch fs-6">
                         <input class="form-check-input  me-0" type="checkbox" id="toggle-dark" checked hidden >
                         <label class="form-check-label" ></label>
                     </div>
-
-
                 </div>
+
                 <div class="sidebar-toggler  x">
                     <a href="#" class="sidebar-hide d-xl-none d-block"><i class="bi bi-x bi-middle"></i></a>
                 </div>
-            </div>
-        </div>
+
+
         <div class="sidebar-menu">
             <ul class="menu">
 

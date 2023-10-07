@@ -30,6 +30,8 @@ use Illuminate\Support\Facades\Route;
             //Your routes here
             Route::get('/home', [HomeController::class, 'Home'])->name('home');
             Route::get('/investment-plans', [InvestmentController::class, 'index'])->name('investment.plan');
+            Route::get('/invest', [InvestmentController::class, 'invest'])->name('invest');
+
             Route::get('/referral-statistic', [ReferralStatisticController::class, 'index'])->name('referral.statistic');
 
 

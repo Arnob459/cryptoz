@@ -146,7 +146,7 @@
 </script>
 @endpush
 @push('js')
-<script src="{{ asset('assets/admin/js/jquery-3.6.0.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/admin/js/jquery-3.6.0.min.js') }}"></script> --}}
 <script>
     function previewImage(input) {
         if (input.files && input.files[0]) {

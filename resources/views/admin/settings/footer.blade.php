@@ -2,8 +2,11 @@
 
 @section('content')
 
+
+
 <section class="section">
     <div class="card">
+
         <div class="card-header">
             <h4 class="card-title">Manage Footer Section</h4>
         </div>
@@ -41,3 +44,5 @@
 </section>
 
 @endsection
+
+

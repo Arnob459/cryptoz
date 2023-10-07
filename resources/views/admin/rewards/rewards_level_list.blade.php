@@ -33,7 +33,7 @@
                                             <button type="button" value="{{ $level->id }}" class="btn btn-primary editbtn" data-bs-toggle="modal"
                                                 data-bs-target="#editModal" ><i class ="bi bi-pencil"></i></button>
 
-                                                <button type="button" class="btn btn-danger rounded-pill" data-toggle="modal" data-target="#deleteModal{{ $level->id }}"><i class ="fa fa-trash"></i></button>
+                                                <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#deleteModal{{ $level->id }}"><i class ="fa fa-trash"></i></button>
                                             </td>
 
                                         </tr>
@@ -146,7 +146,6 @@
 
 
 @push('datatable')
-<script src="{{ asset('assets/admin/extensions/jquery/jquery.min.js') }}"></script>
 <script src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
 <script src="{{ asset('assets/admin/js/pages/datatables.js') }}"></script>
 @endpush

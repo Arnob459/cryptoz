@@ -8,13 +8,17 @@
 
     <link rel="stylesheet" href="{{ asset('assets/admin/css/main/app.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/main/app-dark.css') }}">
-    <link rel="shortcut icon" href="{{ asset('assets/admin/images/logo/favicon.svg') }}" type="x-icon">
-    <link rel="shortcut icon" href="{{ asset('assets/admin/images/logo/favicon.png') }}" type="image/png">
-    {{-- <link rel="stylesheet" href="{{ asset('assets/admin/extensions/toastify-js/src/toastify.css') }}"> --}}
+    <link rel="shortcut icon" href="{{ asset('assets/admin/images/logo/' .$gnl->favicon)}}" type="image/png">
     <link rel="stylesheet" href="{{ asset('assets/admin/css/shared/iconly.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/fontawesome-5.15.4/css/all.min.css') }}">
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
+
+    <script src="{{ asset('assets/admin/extensions/jquery/jquery.min.js') }}"></script>
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 
 </head>
 @include('admin.layouts.sidebar')
@@ -66,7 +70,7 @@
                 </div>
             </nav>
         </header>
-        @if (session('error'))
+        {{-- @if (session('error'))
         <div class="alert alert-warning"><i class="bi bi-exclamation-triangle"></i> {{session('error')}}</div>
         @endif
 
@@ -84,6 +88,9 @@
 
         @if (session('success'))
             <div class="alert alert-success"><i class="bi bi-check-circle"></i> {{session('success')}}</div>
+        @endif --}}
+        @if(session()->has('toastr'))
+            {!! session('toastr') !!}
         @endif
 
         <div class="page-heading">
@@ -122,8 +129,16 @@
 </div>
 <script src="{{ asset('assets/admin/js/bootstrap.js') }}"></script>
 <script src="{{ asset('assets/admin/js/app.js') }}"></script>
-{{-- <script src="{{ asset('assets/admin/extensions/toastify-js/src/toastify.js') }}"></script>
-<script src="{{ asset('assets/admin/js/pages/toastify.js') }}"></script> --}}
+
+<script>
+    @if (Session::has('success'))
+        toastr.options = {
+            "progressBar": true,
+            "closeButton": true,
+        }
+        toastr.success("{{ Session('success') }}");
+    @endif
+</script>
 
 @stack('datatable')
 

@@ -124,7 +124,7 @@
 </section>
 
 @endsection
-@push('js')
+{{-- @push('js')
 <script src="{{ asset('assets/admin/js/jquery-3.6.0.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-@endpush
+@endpush --}}

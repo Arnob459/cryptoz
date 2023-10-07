@@ -23,10 +23,18 @@
     <link rel="stylesheet" href="{{ asset('assets/user/css/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/user/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/fontawesome-5.15.4/css/all.min.css') }}">
+    <script src="{{ asset('assets/admin/extensions/jquery/jquery.min.js') }}"></script>
+    <!-- Toastr CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
-    <link rel="shortcut icon" href="{{ asset('assets/admin/images/logo/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/admin/images/logo/'.$gnl->favicon) }}" type="image/x-icon">
 </head>
+        @if(session()->has('toastr'))
+        {!! session('toastr') !!}
+        @endif
 
 <body>
     <div class="main--body dashboard-bg">
@@ -64,9 +72,9 @@
                     <span></span>
                 </div>
                 <div class="site-header-container">
-                    <div class="side-logo">
-                        <a href="dashboard.html">
-                            <img src="{{ asset('assets/admin/images/logo/logo.png') }}" alt="logo">
+                    <div class="side-logo mt-2">
+                        <a href="">
+                            <img src="{{ asset('assets/admin/images/logo/'.$gnl->logo) }}" alt="logo">
                         </a>
                     </div>
                     <ul class="dashboard-menu">
@@ -116,7 +124,7 @@
                                 <div class="header-area">
                                     <div class="logo">
                                         <a href="index.html">
-                                            <img src="{{ asset('assets/admin/images/logo/logo.png') }}" alt="logo">
+                                            <img src="{{ asset('assets/admin/images/logo/'.$gnl->logo) }}" alt="logo">
                                         </a>
                                     </div>
                                     <ul class="menu">
@@ -204,7 +212,14 @@
                         <script src="{{ asset('assets/user/js/circle-progress.js') }}"></script>
                         <script src="{{ asset('assets/user/js/main.js') }}"></script>
 
-
+                        <script>
+                            @if (Session::has('success'))
+                                toastr.options = {
+                                    "progressBar": true,
+                                }
+                                toastr.success("{{ Session('success') }}");
+                            @endif
+                        </script>
 
                     </body>
 

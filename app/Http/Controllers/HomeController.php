@@ -28,7 +28,8 @@ class HomeController extends Controller
 
     public function Home()
     {
-        return view('user.home');
+        $data['page_title'] = 'Dashboard';
+        return view('user.home',$data);
     }
 }
 
